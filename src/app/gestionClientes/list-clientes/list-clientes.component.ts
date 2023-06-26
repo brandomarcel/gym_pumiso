@@ -11,10 +11,25 @@ listaClientes:Array<any>=[]
   constructor(private servicios:ServiciosService) { }
 
   ngOnInit(): void {
-    this.servicios.getClientes().subscribe((res:any)=>{
+    this.listaClientes=[{'id_persona':"1", 'cedula_persona':"1722195755", 'nombre_persona':"Brando Marcelo",
+     'apellido_persona':"Cevallos Zurita", 'fechan_presona':"1993-11-15", 'telefono':"0984086761"},
+     {'id_persona':"1", 'cedula_persona':"1722195755", 'nombre_persona':"Brando Marcelo",
+     'apellido_persona':"Cevallos Zurita", 'fechan_presona':"1993-11-15", 'telefono':"0984086761"},
+     {'id_persona':"1", 'cedula_persona':"1722195755", 'nombre_persona':"Brando Marcelo",
+     'apellido_persona':"Cevallos Zurita", 'fechan_presona':"1993-11-15", 'telefono':"0984086761"},
+     {'id_persona':"1", 'cedula_persona':"1722195755", 'nombre_persona':"Brando Marcelo",
+     'apellido_persona':"Cevallos Zurita", 'fechan_presona':"1993-11-15", 'telefono':"0984086761"},
+     {'id_persona':"1", 'cedula_persona':"1722195755", 'nombre_persona':"Brando Marcelo",
+     'apellido_persona':"Cevallos Zurita", 'fechan_presona':"1993-11-15", 'telefono':"0984086761"},
+     {'id_persona':"1", 'cedula_persona':"1722195755", 'nombre_persona':"Brando Marcelo",
+     'apellido_persona':"Cevallos Zurita", 'fechan_presona':"1993-11-15", 'telefono':"0984086761"},
+     {'id_persona':"1", 'cedula_persona':"1722195755", 'nombre_persona':"Brando Marcelo",
+     'apellido_persona':"Cevallos Zurita", 'fechan_presona':"1993-11-15", 'telefono':"0984086761"}]
+     console.log(this.listaClientes)
+    /* this.servicios.getClientes().subscribe((res:any)=>{
       console.log(res)
       this.listaClientes=res.message;
-    })
+    }) */
   }
 
 }

@@ -26,7 +26,7 @@
                                     <th>
                                         Celular
                                     </th>
-                                    <th>
+                                    <th style="text-align: center;">
                                         Estado
                                     </th>
                                 </thead>
@@ -36,18 +36,18 @@
                                            {{i+1}}
                                         </td>
                                         <td>
-                                        {{item.cedula}}
+                                        {{item.cedula_persona}}
                                         </td>
                                         <td>
-                                            {{item.nombres}}
+                                            {{item.nombre_persona}} {{item.apellido_persona}}
                                         </td>
                                         <td>
-                                            {{item.correo}}
+                                            {{item.fechan_presona}}
                                         </td>
                                         <td class="text-primary">
-                                            {{item.celular}}
+                                            {{item.telefono}}
                                         </td>
-                                        <td>
+                                        <td style="color: #68F50B; text-align: center;font: bold;">
                                             Activo
                                         </td>
                                     </tr>
