@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+
+import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
 
 @NgModule({
   imports: [
@@ -40,6 +43,8 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+
+    ListClientesComponent
   ]
 })
 
