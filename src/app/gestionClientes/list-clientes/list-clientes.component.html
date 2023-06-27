@@ -6,7 +6,7 @@
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Lista de Clientes</h4>
                         <div style="text-align: end;align-items: end;border: none;">
-                            <button mat-raised-button class="navbar-toggler" type="button" style="color: rgb(0, 0, 0);background-color: #ffffff;"  >
+                            <button mat-raised-button class="navbar-toggler" routerLink="/list-clientes/add-cliente" type="button" style="color: rgb(0, 0, 0);background-color: #ffffff;"  >
                                 <span class="sr-only">Toggle navigation</span>
                                 
                                 <i class="material-icons">person_add</i> Agregar Cliente
@@ -43,16 +43,16 @@
                                            {{i+1}}
                                         </td>
                                         <td>
-                                        {{item.cedula_persona}}
+                                        {{item.cedula}}
                                         </td>
                                         <td>
-                                            {{item.nombre_persona}} {{item.apellido_persona}}
+                                            {{item.nombres_completos}}
                                         </td>
                                         <td>
-                                            {{item.fechan_presona}}
+                                            {{item.correo}}
                                         </td>
                                         <td class="text-primary">
-                                            {{item.telefono}}
+                                            {{item.celular}}
                                         </td>
                                         <td style="color: #68F50B; text-align: center;font: bold;">
                                             Activo

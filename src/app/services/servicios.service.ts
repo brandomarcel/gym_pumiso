@@ -14,7 +14,7 @@ apiUrl=environment.apiUrl;
   })
 
   getClientes(){
-    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.clientes.clientes.getClientes'
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.getClientes'
  
     return this.httpClient.get( url, { headers: this.token,responseType: 'json' });
   }

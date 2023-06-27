@@ -1,3 +1,4 @@
+import { ServiciosService } from 'app/services/servicios.service';
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
@@ -7,8 +8,8 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  clientes:any="";
+  constructor(private servicios:ServiciosService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,6 +67,8 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+
+    this.getClientes();
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
@@ -145,6 +148,13 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+  }
+
+  getClientes(){
+    this.servicios.getClientes().subscribe((res:any)=>{
+      console.log(res)
+      this.clientes=res.message.length;
+    })
   }
 
 }
