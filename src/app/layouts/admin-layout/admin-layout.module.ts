@@ -1,3 +1,5 @@
+import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
+import { AddClienteComponent } from './../../gestionClientes/add-cliente/add-cliente.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -19,8 +21,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 
-import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
 
+AddClienteComponent
 @NgModule({
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { ListClientesComponent } from './../../gestionClientes/list-clientes/lis
     NotificationsComponent,
     UpgradeComponent,
 
-    ListClientesComponent
+    ListClientesComponent,
+    AddClienteComponent
   ]
 })
 
