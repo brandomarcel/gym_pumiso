@@ -1,107 +1,184 @@
-
 <div class="main-content">
-    <div class="container-fluid">
-      
-        <div class="row">
-            <div class="offset-md-1 col-md-10" >
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title">Nuevo Cliente</h4>
-                    </div>
-                    <div class="card-body">
-                        
-                            <div class="row">
-                              <div class="col-md-3">
-                                <mat-form-field class="example-full-width">
-                                  <input [(ngModel)]="cedula" matInput placeholder="Cedula" type="text" maxlength="10">
-                                </mat-form-field>
-                              </div>
-                              
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="nombres"   matInput placeholder="Nombres" type="text">
-                                  </mat-form-field>
-                                </div>
-                                <div class="col-md-5">
-                                  <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="apellidos"  matInput placeholder="Apellidos" type="text">
-                                  </mat-form-field>
-                                </div>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="offset-md-1 col-md-10">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Nuevo Cliente</h4>
+          </div>
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="cedula" matInput placeholder="Cedula" type="text" maxlength="10">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="nombres" matInput placeholder="Nombres" type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-5">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="apellidos" matInput placeholder="Apellidos" type="text">
+                </mat-form-field>
+              </div>
 
 
-                            </div>
-                            <div class="row">
-
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input [(ngModel)]="apodo"  matInput placeholder="Usuario" type="text">
-                                </mat-form-field>
-                              </div>
-
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="celular"  matInput placeholder="Celular" type="text">
-                                  </mat-form-field>
-                                </div>
-
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input [(ngModel)]="correo"  matInput placeholder="Correo electrónico" type="text">
-                                  </mat-form-field>
-                                </div>
-                            </div>
-                           <!--  <div style="border-top: 1px solid black;"></div> -->
-                         
-                    
-                    </div>
-                </div>
             </div>
-     
+            <div class="row">
 
-        </div>
-
-
-        <div class="row">
-          <div class="offset-md-3 col-md-6">
-            <div class="card">
-              <div class="card-header card-header-primary" style="background-color: #a72abd;">
-                  <h4 class="card-title">Membresia</h4>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="apodo" matInput placeholder="Usuario" type="text">
+                </mat-form-field>
               </div>
-              <div class="card-body">
-                 
-                      <div class="row">
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width">
-                              <input [(ngModel)]="fecha_inicio"   matInput placeholder="Fecha de Inicio" type="date">
-                            </mat-form-field>
-                          </div>
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width">
-                              <input [(ngModel)]="fecha_fin"  matInput placeholder="Fecha de Fin" type="date">
-                            </mat-form-field>
-                          </div>
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width">
-                              <input [(ngModel)]="valor" matInput placeholder="Valor" type="number">
-                            </mat-form-field>
-                          </div>
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width">
-                              <input [(ngModel)]="descuento"  matInput placeholder="Descuento" type="number">
-                            </mat-form-field>
-                          </div>
-                      </div>
-                      <button mat-raised-button (click)="createCliente()" class="btn btn-success pull-right">Guardar</button>
-                     
-                   
-                
+
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="celular" matInput placeholder="Celular" type="text">
+                </mat-form-field>
               </div>
+
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="correo" matInput placeholder="Correo electrónico" type="text">
+                </mat-form-field>
+              </div>
+            </div>
+            <!--  <div style="border-top: 1px solid black;"></div> -->
+
+
           </div>
         </div>
-    
       </div>
-   
+
+
     </div>
 
+
+    <div class="row">
+      <div class="offset-md-1 col-md-4 col-sm-5" >
+        <div class="card">
+          <div class="card-header card-header-primary" style="background-color: #a72abd;">
+            <h4 class="card-title">Membresia</h4>
+          </div>
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="fecha_inicio" matInput placeholder="Fecha de Inicio" type="date">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="fecha_fin" matInput placeholder="Fecha de Fin" type="date">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-6">
+                <mat-form-field>
+                  <mat-label>Tipo Membresía</mat-label>
+                  <select (change)="cambio()" [(ngModel)]="tipo_membresia" matNativeControl>
+                    <option value="Mensual">Mensual</option>
+                    <option value="Trimestral">Trimestral</option>
+                    <option value="Semestral">Semestral</option>
+                    <option value="Anual">Anual</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </mat-form-field>
+
+              </div>
+
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="valor" matInput placeholder="Valor" type="number">
+                </mat-form-field>
+              </div>
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6 col-sm-7" >
+        <div class="card">
+          <div class="card-header card-header-primary" style="background-color: #a72abd;">
+            <h4 class="card-title">Peso y Altura</h4>
+          </div>
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="peso" matInput placeholder="Peso(kg)" type="number">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="altura" matInput placeholder="Altura(metros)" type="number">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="imc" matInput placeholder="(IMC)" disabled>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="descripcion" matInput placeholder="Descripcion"  disabled>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="bajarpeso" matInput placeholder="Sobrepeso"  disabled>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-4" >
+                <button mat-raised-button (click)="calcularIMC()" class="btn btn-warning pull-center">Calcular</button>
+              </div>
+
+              
+            </div>
+
+
+            </div>
+            
+
+            
+          </div>
+
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="row">
+      <div class="offset-md-5 col-md-6" >
+        <button mat-raised-button (click)="createCliente()" class="btn btn-success pull-center">Guardar</button>
+      </div>
+    </div>
+
+
   </div>
-  
