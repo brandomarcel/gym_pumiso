@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import Swal from 'sweetalert2';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,9 +19,28 @@ export class ServiciosService {
 
     return this.httpClient.get(url, { headers: this.token, responseType: 'json' });
   }
+  updateCliente(datos) {
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.updateCliente'
+    let dato = { datos: datos }
+    return this.httpClient.put(url, dato, { headers: this.token, responseType: 'json' });
+  }
+
+  detalleCliente(name) {
+    console.log(name)
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.detalleCliente'
+    let dato = { name: String(name) }
+    return this.httpClient.post(url,dato,{ headers: this.token, responseType: 'json' });
+  }
+
   crearCliente(datos) {
     let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.crearCliente'
     let dato = { datos: datos }
+    return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
+  }
+
+  borrarCliente(name) {
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.borrarCliente'
+    let dato = { name: String(name) }
     return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
   }
 
@@ -62,10 +82,10 @@ export class ServiciosService {
     };
   }
 
-  sweetMensaje(mensaje) {
+  sweetMensaje(icon,mensaje) {
     Swal.fire({
 
-      icon: 'success',
+      icon: icon,
       title: mensaje,
       showConfirmButton: false,
       timer: 1500
@@ -92,6 +112,17 @@ export class ServiciosService {
       })
     })
 
+  }
+
+  voz(texto:string){
+    const synth = window.speechSynthesis;
+const utterThis = new SpeechSynthesisUtterance(texto);
+console.log(utterThis)
+utterThis['pitch'] = 0.01;
+
+
+console.log(utterThis)
+synth.speak(utterThis);
   }
 
 

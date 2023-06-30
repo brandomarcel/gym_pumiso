@@ -11,8 +11,24 @@ listaClientes:Array<any>=[]
   constructor(private servicios:ServiciosService) { }
 
   ngOnInit(): void {
+    this.getClientes();
+
     
 
+
+  }
+
+
+  borrarCliente(name){
+    this.servicios.borrarCliente(name).subscribe(res=>{
+      console.log(res)
+      this.getClientes();
+    })
+  }
+
+
+  getClientes(){
+  
     this.servicios.getClientes().subscribe((res:any)=>{
       console.log(res)
       this.listaClientes=res.message;

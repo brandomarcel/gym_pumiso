@@ -1,18 +1,21 @@
 <div class="main-content">
+
     <div class="container-fluid">
+        <div style="text-align: end;align-items: end;border: none;">
+            <button routerLink="/list-clientes/add-cliente" mat-raised-button class="btn btn-info btn-lg"> <i
+                    class="material-icons">person_add</i> Agregar Cliente</button>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+
+
+
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Lista de Clientes</h4>
-                        <div style="text-align: end;align-items: end;border: none;">
-                            <button mat-raised-button class="navbar-toggler" routerLink="/list-clientes/add-cliente" type="button" style="color: rgb(0, 0, 0);background-color: #ffffff;"  >
-                                <span class="sr-only">Toggle navigation</span>
-                                
-                                <i class="material-icons">person_add</i> Agregar Cliente
-                            </button>
-                        </div>
-                       
+
+
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -27,50 +30,51 @@
                                     <th>
                                         Nombres
                                     </th>
-                                    
+
                                     <th>
                                         Celular
                                     </th>
-                                    <th style="text-align: center;">
+                                    <!-- <th style="text-align: center;">
                                         Estado
-                                    </th>
+                                    </th> -->
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of listaClientes ; let i = index" >
+                                    <tr *ngFor="let item of listaClientes ; let i = index">
                                         <td>
-                                           {{i+1}}
+                                            {{i+1}}
                                         </td>
                                         <td>
-                                        {{item.cedula}}
+                                            {{item.cedula}}
                                         </td>
                                         <td>
                                             {{item.nombres_completos}}
                                         </td>
-                                        
+
                                         <td class="text-primary">
                                             {{item.celular}}
                                         </td>
-                                        <td style="color: #68F50B; text-align: center;font: bold;">
+                                        <!-- <td style="color: #68F50B; text-align: center;font: bold;">
                                             Activo
-                                        </td>
+                                        </td> -->
                                         <td class="td-actions text-right">
-                                            <button mat-raised-button type="button" matTooltip="Editar"
+                                            <button [routerLink]="['/list-clientes/edit-cliente/',item.name]"
+                                                mat-raised-button type="button" matTooltip="Editar"
                                                 [matTooltipPosition]="'above'"
                                                 class="btn btn-primary btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">edit</i>
                                             </button>
-                                            <button mat-raised-button type="button" matTooltip="Borrar"
+                                            <button (click)="borrarCliente(item.name)" mat-raised-button type="button" matTooltip="Borrar"
                                                 [matTooltipPosition]="'above'"
                                                 class="btn btn-danger btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </td>
                                     </tr>
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
                                 </tbody>
                             </table>
                         </div>

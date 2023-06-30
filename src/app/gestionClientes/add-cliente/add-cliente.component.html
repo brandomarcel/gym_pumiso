@@ -4,8 +4,11 @@
     <div class="row">
       <div class="offset-md-1 col-md-10">
         <div class="card">
-          <div class="card-header card-header-danger">
+          <div class="card-header card-header-danger" *ngIf="!id">
             <h4 class="card-title">Nuevo Cliente</h4>
+          </div>
+          <div class="card-header card-header-danger" *ngIf="id">
+            <h4 class="card-title">Editar Cliente</h4>
           </div>
           <div class="card-body">
 
@@ -56,11 +59,13 @@
         </div>
       </div>
 
+      
+
 
     </div>
 
 
-    <div class="row">
+    <div class="row" *ngIf="!id" >
       <div class="offset-md-1 col-md-4 col-sm-5" >
         <div class="card">
           <div class="card-header card-header-primary" style="background-color: #a72abd;">
@@ -142,7 +147,7 @@
               </div>
               <div class="col-md-4">
                 <mat-form-field class="example-full-width">
-                  <input [(ngModel)]="bajarpeso" matInput placeholder="Sobrepeso"  disabled>
+                  <input [(ngModel)]="sobrepeso" matInput placeholder="Sobrepeso"  disabled>
                 </mat-form-field>
               </div>
 
@@ -175,8 +180,19 @@
     </div>
 
     <div class="row">
-      <div class="offset-md-5 col-md-6" >
-        <button mat-raised-button (click)="createCliente()" class="btn btn-success pull-center">Guardar</button>
+      <div class="offset-md-5 col-md-6" *ngIf="!id">
+        <button mat-raised-button (click)="createCliente()" class="btn btn-success pull-center">GUARDAR</button>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="id">
+
+      <div class="offset-md-4 col-md-2" >
+        <button mat-raised-button routerLink="/list-clientes" class="btn btn-warning pull-center">CANCELAR</button>
+      </div>
+
+      <div class="col-md-2" >
+        <button mat-raised-button (click)="updateCliente()" class="btn btn-success pull-center">EDITAR</button>
       </div>
     </div>
 

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit,Input } from '@angular/core';
 import { formatDate } from "@angular/common";
 import { ServiciosService } from 'app/services/servicios.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { ServiciosService } from 'app/services/servicios.service';
   styleUrls: ['./add-cliente.component.scss']
 })
 export class AddClienteComponent implements OnInit {
+
   //Cliente
   cedula: any = '';
   nombres: any = '';
@@ -27,37 +28,69 @@ export class AddClienteComponent implements OnInit {
   altura: any = '';
   imc: any = '';
   descripcion: any = '';
-  bajarpeso: any = '';
+  sobrepeso: any = '';
+  fecha_registro: any = '';
+
+  id: any = '';
 
 
-  constructor(private servicios:ServiciosService) { }
+
+  constructor(private servicios:ServiciosService,private activatedRoute:ActivatedRoute,
+    private router:Router) { }
 
   ngOnInit(): void {
-  let fecha = new Date();
-  this.fecha_inicio = formatDate((fecha), 'yyyy-MM-dd', 'en-US');
+
+  /* this.servicios.voz('TU MEMBRESIA TERMINARA EN 3 DIAS'); */
+
+
+  this.fecha_registro = new Date();
+  this.id=this.activatedRoute.snapshot.params['name']
+  console.log(this.activatedRoute.snapshot.params['name'])
+
+  if (this.id) {
+    this.servicios.detalleCliente(this.id).subscribe((res:any)=>{
+      console.log(res)
+      var datos = res.message[0];
+      console.log(datos)
+      this.cedula=datos.cedula;
+      this.nombres=datos.nombres;
+      this.apellidos=datos.apellidos;
+      this.apodo=datos.cedula;
+      this.correo=datos.correo;
+      this.celular=datos.celular;
+     
+      
+    })
+  }else{
+
+
+
+  
+  this.fecha_inicio = formatDate((this.fecha_registro), 'yyyy-MM-dd', 'en-US');
   console.log(this.fecha_inicio)
 
-  fecha.setMonth(fecha.getMonth() + 1)
-  this.fecha_fin = formatDate(fecha, 'yyyy-MM-dd', 'en-US');
-  
-
-
+  this.fecha_registro.setMonth(this.fecha_registro.getMonth() + 1)
+  this.fecha_fin = formatDate(this.fecha_registro, 'yyyy-MM-dd', 'en-US');
+}
   }
 
   createCliente() {
-
-   
+var validacion = this.validar();
+console.log(validacion)
+   if (validacion == true) {
     let cliente = {
       'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
-      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_inicio': this.fecha_inicio,
-      'fecha_fin': this.fecha_fin, 'tipo_membresia': this.tipo_membresia, 'valor': this.valor,
-      'peso': this.peso, 'altura': this.altura
+      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_registro': this.fecha_registro,
+      'fecha_inicio': this.fecha_inicio,'fecha_fin': this.fecha_fin, 'tipo_membresia': this.tipo_membresia, 'valor': this.valor,
+      'peso': this.peso, 'altura': this.altura, 'fecha': this.fecha_registro, 'imc': this.imc, 'descripcion': this.descripcion,
+      'sobrepeso': this.sobrepeso
     }
 
     this.servicios.crearCliente(cliente).subscribe((res:any)=>{
       console.log(res)
       if (res.message.estado == 'Exito') {
-        this.servicios.sweetMensaje('CLIENTE REGISTRADO');
+        this.servicios.sweetMensaje('success','CLIENTE REGISTRADO');
+        this.router.navigate(['/list-clientes']);
         
       }
       
@@ -67,19 +100,70 @@ export class AddClienteComponent implements OnInit {
 
     console.log(cliente)
 
+   }else{
+    this.servicios.sweetMensaje('warning','Llene todos los datos ');
+  }
+    
+  }
+  updateCliente() {
+    var validacion = this.validarEdit();
+    console.log(validacion)
+       if (validacion == true) {
+        let cliente = {
+          'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
+          'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'name':this.id
+        }
+    
+        this.servicios.updateCliente(cliente).subscribe((res:any)=>{
+          console.log(res)
+          if (res.message.estado == 'Exito') {
+            this.servicios.sweetMensaje('success','CLIENTE REGISTRADO');
+            this.router.navigate(['/list-clientes']);
+            
+          }
+          
+        })
+    
+        
+    
+        console.log(cliente)
+    
+       }else{
+        this.servicios.sweetMensaje('warning','Llene todos los datos ');
+      }
+        
+      }
+
+  validar(){
+    if (!this.cedula || !this.nombres || !this.apellidos || !this.apodo
+      || !this.celular || !this.correo || !this.fecha_inicio || !this.fecha_fin
+      || !this.tipo_membresia || !this.valor) {
+        return false;
+    }else{
+      return true
+    }
+  }
+
+  validarEdit(){
+    if (!this.cedula || !this.nombres || !this.apellidos || !this.apodo
+      || !this.celular || !this.correo ) {
+        return false;
+    }else{
+      return true
+    }
   }
   calcularIMC(){
   let res:any;
     if (!this.peso ) {
-      this.servicios.sweetMensaje('Ingrese el peso ');
+      this.servicios.sweetMensaje('warning','Ingrese el peso ');
     }else if(!this.altura){
-      this.servicios.sweetMensaje('Ingrese la altura ');
+      this.servicios.sweetMensaje('warning','Ingrese la altura ');
     }
     res =this.servicios.calcularIMC(this.peso,this.altura);
 
     this.imc=res.imc
     this.descripcion = res.descripcion
-    this.bajarpeso = res.bajarpeso
+    this.sobrepeso = res.bajarpeso
     console.log(res);
     
 

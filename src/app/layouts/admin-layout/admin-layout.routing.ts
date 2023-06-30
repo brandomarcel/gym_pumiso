@@ -1,3 +1,8 @@
+import { AddMembresiasComponent } from './../../gestionMembresias/add-membresias/add-membresias.component';
+import { ListMembresiasComponent } from './../../gestionMembresias/list-membresias/list-membresias.component';
+
+import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
+import { AddClienteComponent } from './../../gestionClientes/add-cliente/add-cliente.component';
 
 import { Routes } from '@angular/router';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -10,8 +15,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 
-import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
-import { AddClienteComponent } from './../../gestionClientes/add-cliente/add-cliente.component';
+
+
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -60,6 +65,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'list-clientes',     component: ListClientesComponent },
     { path: 'list-clientes/add-cliente',     component: AddClienteComponent },
+    { path: 'list-clientes/edit-cliente/:name',     component: AddClienteComponent },
+
+    { path: 'list-membresias',     component:  ListMembresiasComponent},
+    { path: 'list-membresias/add-membresias',     component: AddMembresiasComponent },
+    { path: 'list-membresias/edit-membresias/:id',     component: AddMembresiasComponent },
+
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
