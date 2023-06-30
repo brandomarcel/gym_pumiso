@@ -1,5 +1,10 @@
+import { ListMembresiasComponent } from './../../gestionMembresias/list-membresias/list-membresias.component';
+import { AddMembresiasComponent } from './../../gestionMembresias/add-membresias/add-membresias.component';
 import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
 import { AddClienteComponent } from './../../gestionClientes/add-cliente/add-cliente.component';
+
+
+
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -20,6 +25,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 AddClienteComponent
@@ -35,19 +41,25 @@ AddClienteComponent
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    NgSelectModule
+    
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
-    IconsComponent,
+    
+   
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
 
     ListClientesComponent,
-    AddClienteComponent
+    AddClienteComponent,
+
+    AddMembresiasComponent,
+    ListMembresiasComponent
   ]
 })
 

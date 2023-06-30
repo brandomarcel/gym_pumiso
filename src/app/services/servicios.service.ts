@@ -46,6 +46,24 @@ export class ServiciosService {
 
 
 
+  //MEMBRESIAS
+
+  getMembresias() {
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.getMembresias'
+
+    return this.httpClient.get(url, { headers: this.token, responseType: 'json' });
+  }
+
+
+  crearMembresia(datos) {
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.crearMembresia'
+    let dato = { datos: datos }
+    return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
+  }
+
+
+
+
   calcularIMC(peso: number, altura: number): any {
 
     const imc = peso / (altura * altura);

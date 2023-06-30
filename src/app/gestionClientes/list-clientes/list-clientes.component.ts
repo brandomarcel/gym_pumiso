@@ -13,9 +13,6 @@ listaClientes:Array<any>=[]
   ngOnInit(): void {
     this.getClientes();
 
-    
-
-
   }
 
 

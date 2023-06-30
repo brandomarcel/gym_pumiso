@@ -1,1 +1,106 @@
-<p>list-membresias works!</p>
+<div class="main-content">
+   
+        
+ 
+    
+    <div class="container-fluid">
+        <div style="text-align: end;align-items: end;border: none;" >
+            <button routerLink="/list-membresias/add-membresias" mat-raised-button class="btn btn-info btn-lg"> <i
+                    class="material-icons">add_box</i> Agregar Membresia </button>
+        </div>
+        <!-- <div *ngIf="mostrarMemb" >
+            <app-add-membresias></app-add-membresias>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+
+
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Membresias </h4>
+
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        N#
+                                    </th>
+                                    <th>
+                                        Cliente
+                                    </th>
+                                    <th>
+                                        Fecha inicio
+                                    </th>
+
+                                    <th>
+                                        Fecha fin
+                                    </th>
+                                    <th>
+                                        Membresia
+                                    </th>
+                                    <th>
+                                        Valor
+                                    </th>
+                                    <!-- <th style="text-align: center;">
+                                        Estado
+                                    </th> -->
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of listaMembresias ; let i = index">
+                                        <td>
+                                            {{i+1}}
+                                        </td>
+                                    
+                                        <td>
+                                            {{item.nombres_completos}}
+                                        </td>
+
+                                        <td class="text-primary">
+                                            {{item.fecha_inicio}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{item.fecha_fin}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{item.tipo_membresia}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{item.valor | currency}}
+                                        </td>
+                                        <!-- <td style="color: #68F50B; text-align: center;font: bold;">
+                                            Activo
+                                        </td> -->
+                                        <td class="td-actions text-right">
+                                            <button [routerLink]="['/list-clientes/edit-cliente/',item.name]"
+                                                mat-raised-button type="button" matTooltip="Editar"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button (click)="borrarCliente(item.name)" mat-raised-button type="button" matTooltip="Borrar"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

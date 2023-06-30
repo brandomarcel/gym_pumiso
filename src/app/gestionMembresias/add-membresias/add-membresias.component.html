@@ -1,1 +1,82 @@
-<p>add-membresias works!</p>
+<div class="main-content">
+
+  
+
+  
+  <div class="row">
+    <div class="offset-md-3 col-md-6 ">
+      <div class="card">
+        <div class="card-header card-header-primary" style="background-color: #a72abd;">
+          <h4 class="card-title">Membresia</h4>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+        
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <ng-select [items]="listaClientes" 
+              placeholder="Cliente" 
+              [notFoundText]="'No se encontraron datos'"
+              bindLabel="nombres_completos" 
+              bindValue="name" 
+              [(ngModel)]="cliente">
+   </ng-select>
+            </div>
+
+            
+          </div>
+         
+         
+
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input [(ngModel)]="fecha_inicio" matInput placeholder="Fecha de Inicio" type="date">
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input [(ngModel)]="fecha_fin" matInput placeholder="Fecha de Fin" type="date">
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+              <mat-form-field>
+                <mat-label>Tipo Membresía</mat-label>
+                <select (change)="cambio()" [(ngModel)]="tipo_membresia" matNativeControl>
+                  <option value="Mensual">Mensual</option>
+                  <option value="Trimestral">Trimestral</option>
+                  <option value="Semestral">Semestral</option>
+                  <option value="Anual">Anual</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </mat-form-field>
+
+            </div>
+
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input [(ngModel)]="valor" matInput placeholder="Valor" type="number">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div class="row">
+    <div class="offset-md-5 col-md-2" >
+      <button mat-raised-button (click)="guardar()" class="btn btn-success pull-center">GUARDAR</button>
+    </div>
+  </div>
