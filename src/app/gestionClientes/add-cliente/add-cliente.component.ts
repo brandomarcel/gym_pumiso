@@ -33,7 +33,7 @@ export class AddClienteComponent implements OnInit {
   fecha_registro: any = '';
 
   id: any = '';
-
+  fecha: any = '';
 
 
   constructor(private servicios:ServiciosService,private activatedRoute:ActivatedRoute,
@@ -69,6 +69,7 @@ export class AddClienteComponent implements OnInit {
 
   
   this.fecha_inicio = formatDate((this.fecha_registro), 'yyyy-MM-dd', 'en-US');
+  this.fecha = formatDate((this.fecha_registro), 'yyyy-MM-dd', 'en-US');
   console.log(this.fecha_inicio)
 
   this.fecha_registro.setMonth(this.fecha_registro.getMonth() + 1)
@@ -82,9 +83,9 @@ console.log(validacion)
    if (validacion == true) {
     let cliente = {
       'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
-      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_registro': this.fecha_registro,'genero': this.genero,
+      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_registro': this.fecha,'genero': this.genero,
       'fecha_inicio': this.fecha_inicio,'fecha_fin': this.fecha_fin, 'tipo_membresia': this.tipo_membresia, 'valor': this.valor,
-      'peso': this.peso, 'altura': this.altura, 'fecha': this.fecha_registro, 'imc': this.imc, 'descripcion': this.descripcion,
+      'peso': this.peso, 'altura': this.altura, 'fecha': this.fecha, 'imc': this.imc, 'descripcion': this.descripcion,
       'sobrepeso': this.sobrepeso
     }
 
