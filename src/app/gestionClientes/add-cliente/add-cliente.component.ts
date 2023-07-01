@@ -18,6 +18,7 @@ export class AddClienteComponent implements OnInit {
   apodo: any = '';
   celular: any = '';
   correo: any = '';
+  genero: any = '';
   //Membresia
   fecha_inicio: any = '';
   fecha_fin: any = '';
@@ -40,7 +41,7 @@ export class AddClienteComponent implements OnInit {
 
   ngOnInit(): void {
 
-  /* this.servicios.voz('TU MEMBRESIA TERMINARA EN 3 DIAS'); */
+  /* this.servicios.voz('TU MEMBRESIA MICHU EN 3 DIAS'); */
 
 
   this.fecha_registro = new Date();
@@ -58,6 +59,7 @@ export class AddClienteComponent implements OnInit {
       this.apodo=datos.cedula;
       this.correo=datos.correo;
       this.celular=datos.celular;
+      this.genero=datos.genero;
      
       
     })
@@ -80,7 +82,7 @@ console.log(validacion)
    if (validacion == true) {
     let cliente = {
       'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
-      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_registro': this.fecha_registro,
+      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_registro': this.fecha_registro,'genero': this.genero,
       'fecha_inicio': this.fecha_inicio,'fecha_fin': this.fecha_fin, 'tipo_membresia': this.tipo_membresia, 'valor': this.valor,
       'peso': this.peso, 'altura': this.altura, 'fecha': this.fecha_registro, 'imc': this.imc, 'descripcion': this.descripcion,
       'sobrepeso': this.sobrepeso
@@ -89,6 +91,7 @@ console.log(validacion)
     this.servicios.crearCliente(cliente).subscribe((res:any)=>{
       console.log(res)
       if (res.message.estado == 'Exito') {
+        this.servicios.voz("BIENVENIDO "+this.apodo+" ");
         this.servicios.sweetMensaje('success','CLIENTE REGISTRADO');
         this.router.navigate(['/list-clientes']);
         
@@ -111,13 +114,14 @@ console.log(validacion)
        if (validacion == true) {
         let cliente = {
           'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
-          'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'name':this.id
+          'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'name':this.id,
+          'genero':this.genero
         }
-    
+        console.log(cliente)
         this.servicios.updateCliente(cliente).subscribe((res:any)=>{
           console.log(res)
           if (res.message.estado == 'Exito') {
-            this.servicios.sweetMensaje('success','CLIENTE REGISTRADO');
+            this.servicios.sweetMensaje('success','CLIENTE ACTUALIZADO');
             this.router.navigate(['/list-clientes']);
             
           }
@@ -136,7 +140,7 @@ console.log(validacion)
 
   validar(){
     if (!this.cedula || !this.nombres || !this.apellidos || !this.apodo
-      || !this.celular || !this.correo || !this.fecha_inicio || !this.fecha_fin
+      || !this.celular || !this.correo || !this.genero || !this.fecha_inicio || !this.fecha_fin
       || !this.tipo_membresia || !this.valor) {
         return false;
     }else{
@@ -146,7 +150,7 @@ console.log(validacion)
 
   validarEdit(){
     if (!this.cedula || !this.nombres || !this.apellidos || !this.apodo
-      || !this.celular || !this.correo ) {
+      || !this.celular || !this.correo || !this.genero ) {
         return false;
     }else{
       return true

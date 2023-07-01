@@ -34,19 +34,28 @@
             </div>
             <div class="row">
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <mat-form-field class="example-full-width">
                   <input [(ngModel)]="apodo" matInput placeholder="Usuario" type="text">
                 </mat-form-field>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <mat-form-field class="example-full-width">
-                  <input [(ngModel)]="celular" matInput placeholder="Celular" type="text">
+                  <input [(ngModel)]="celular" matInput placeholder="Celular" maxlength="10" type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-3">
+                <mat-form-field>
+                  <mat-label>Genero</mat-label>
+                  <mat-select [(value)]="genero">
+                    <mat-option value="Masculino">Masculino</mat-option>
+                    <mat-option value="Femenino">Femenino</mat-option>
+                  </mat-select>
                 </mat-form-field>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <mat-form-field class="example-full-width">
                   <input [(ngModel)]="correo" matInput placeholder="Correo electrónico" type="text">
                 </mat-form-field>
@@ -117,7 +126,7 @@
 
       <div class="col-md-6 col-sm-7" >
         <div class="card">
-          <div class="card-header card-header-primary" style="background-color: #a72abd;">
+          <div class="card-header card-header-success"  style="background: rgb(54, 99, 247);">
             <h4 class="card-title">Peso y Altura</h4>
           </div>
           <div class="card-body">

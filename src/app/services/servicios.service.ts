@@ -136,7 +136,7 @@ export class ServiciosService {
     const synth = window.speechSynthesis;
 const utterThis = new SpeechSynthesisUtterance(texto);
 console.log(utterThis)
-utterThis['pitch'] = 0.01;
+utterThis['pitch'] = 0.1;
 
 
 console.log(utterThis)

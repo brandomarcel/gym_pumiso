@@ -9,6 +9,7 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
   clientes:any="";
+  membresias:any="";
   constructor(private servicios:ServiciosService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
@@ -69,6 +70,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     this.getClientes();
+    this.getMembresias();
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
@@ -154,6 +156,12 @@ export class DashboardComponent implements OnInit {
     this.servicios.getClientes().subscribe((res:any)=>{
       console.log(res)
       this.clientes=res.message.length;
+    })
+  }
+  getMembresias(){
+    this.servicios.getMembresias().subscribe((res:any)=>{
+      console.log(res)
+      this.membresias=res.message.length;
     })
   }
 
