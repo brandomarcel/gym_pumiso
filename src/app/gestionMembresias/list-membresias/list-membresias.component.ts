@@ -37,4 +37,23 @@ export class ListMembresiasComponent implements OnInit {
     
   }
 
+
+
+  async deleteMembresia(name){
+
+    const res = await this.servicios.sweetMensajePromesa('Esta seguro de borrar la membresia.','warning');
+console.log(res)
+if (res == 'ok') {
+  this.servicios.deleteMembresia(name).subscribe(res=>{
+      console.log(res)
+      this.getMembresias();
+
+      this.servicios.sweetMensaje('success','Membresia eliminada')
+    })
+  
+}
+    
+  }
+
+
 }

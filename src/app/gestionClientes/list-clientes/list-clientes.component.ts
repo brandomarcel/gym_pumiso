@@ -16,11 +16,20 @@ listaClientes:Array<any>=[]
   }
 
 
-  borrarCliente(name){
-    this.servicios.borrarCliente(name).subscribe(res=>{
+  async estadoCliente(name){
+
+    const res = await this.servicios.sweetMensajePromesa('Esta seguro de borrar toda la informacion del cliente?','warning');
+console.log(res)
+if (res == 'ok') {
+  this.servicios.borrarCliente(name).subscribe(res=>{
       console.log(res)
       this.getClientes();
+
+      this.servicios.sweetMensaje('success','Cliente eliminado')
     })
+  
+}
+    
   }
 
 
@@ -29,6 +38,10 @@ listaClientes:Array<any>=[]
     this.servicios.getClientes().subscribe((res:any)=>{
       console.log(res)
       this.listaClientes=res.message;
+
+      const cliActivos= this.listaClientes.filter((item=> (item.estado === 'Activo')))
+      this.listaClientes=cliActivos
+
     })
   }
 

@@ -1,3 +1,4 @@
+import { PesosComponent } from './../../gestionPeso/pesos/pesos.component';
 import { AddMembresiasComponent } from './../../gestionMembresias/add-membresias/add-membresias.component';
 import { ListMembresiasComponent } from './../../gestionMembresias/list-membresias/list-membresias.component';
 
@@ -71,6 +72,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'list-membresias/add-membresias',     component: AddMembresiasComponent },
     { path: 'list-membresias/edit-membresias/:id',     component: AddMembresiasComponent },
 
+    { path: 'pesos',     component: PesosComponent },
+    
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
 /*     { path: 'icons',          component: IconsComponent }, */

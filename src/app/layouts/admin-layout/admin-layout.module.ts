@@ -1,3 +1,4 @@
+import { PesosComponent } from './../../gestionPeso/pesos/pesos.component';
 import { ListMembresiasComponent } from './../../gestionMembresias/list-membresias/list-membresias.component';
 import { AddMembresiasComponent } from './../../gestionMembresias/add-membresias/add-membresias.component';
 import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
@@ -59,7 +60,9 @@ AddClienteComponent
     AddClienteComponent,
 
     AddMembresiasComponent,
-    ListMembresiasComponent
+    ListMembresiasComponent,
+
+    PesosComponent
   ]
 })
 

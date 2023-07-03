@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
+
+environment
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -8,6 +10,8 @@ import Swal from 'sweetalert2';
 })
 export class ServiciosService {
   apiUrl = environment.apiUrl;
+
+  
   constructor(private httpClient: HttpClient) { }
 
   token = new HttpHeaders({
@@ -15,6 +19,7 @@ export class ServiciosService {
   })
 
   getClientes() {
+    console.log(this.apiUrl)
     let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.getClientes'
 
     return this.httpClient.get(url, { headers: this.token, responseType: 'json' });
@@ -43,6 +48,11 @@ export class ServiciosService {
     let dato = { name: String(name) }
     return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
   }
+  estadoCliente(name) {
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.estadoCliente'
+    let dato = { name: String(name) }
+    return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
+  }
 
 
 
@@ -61,6 +71,19 @@ export class ServiciosService {
     return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
   }
 
+  deleteMembresia(name) {
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.deleteMembresia'
+    let dato = { name: String(name) }
+    return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
+  }
+
+
+ //PESOS
+ createPeso(datos) {
+  let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.createPeso'
+  let dato = { datos: datos }
+  return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
+}
 
 
 
@@ -116,17 +139,17 @@ export class ServiciosService {
         title: titulo,
         heightAuto: false,
         icon: icono,
-        confirmButtonText: 'Ok',
-        //showDenyButton: true,
-        //denyButtonText: `Don't save`,
+        confirmButtonText: 'Si',
+        showDenyButton: true,
+        denyButtonText: `No`,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           resolve('ok')
 
-        } /* else if (result.isDenied) {
+        } else if (result.isDenied) {
         resolve('cancelar')
-      } */
+      }
       })
     })
 

@@ -17,16 +17,20 @@
 
 
                     </div>
-                    <div class="card-body">
+
+
+                    <!-- <div style="display: flex; justify-content: center; align-items: center; height: 200px; font-size: 24px; color: gray;">
+                        <p>No se encontraron datos para presentar</p>
+                      </div> -->
+
+                    <div class="card-body" >
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
                                         N#
                                     </th>
-                                    <th>
-                                        Cedula
-                                    </th>
+                                   
                                     <th>
                                         Nombres
                                     </th>
@@ -34,6 +38,11 @@
                                     <th>
                                         Celular
                                     </th>
+
+                                    <th>
+                                        Fecha de Registro
+                                    </th>
+
                                     <!-- <th style="text-align: center;">
                                         Estado
                                     </th> -->
@@ -43,15 +52,17 @@
                                         <td>
                                             {{i+1}}
                                         </td>
-                                        <td>
-                                            {{item.cedula}}
-                                        </td>
+                                       
                                         <td>
                                             {{item.nombres_completos}}
                                         </td>
 
-                                        <td class="text-primary">
+                                        <td>
                                             {{item.celular}}
+                                        </td>
+
+                                        <td class="text-warning">
+                                            {{item.fecha_registro}}
                                         </td>
                                         <!-- <td style="color: #68F50B; text-align: center;font: bold;">
                                             Activo
@@ -63,7 +74,7 @@
                                                 class="btn btn-primary btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">edit</i>
                                             </button>
-                                            <button (click)="borrarCliente(item.name)" mat-raised-button type="button" matTooltip="Borrar"
+                                            <button (click)="estadoCliente(item.name)" mat-raised-button type="button" matTooltip="Desactivar"
                                                 [matTooltipPosition]="'above'"
                                                 class="btn btn-danger btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">delete</i>

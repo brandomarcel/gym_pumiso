@@ -10,6 +10,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -24,6 +25,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+
     
 
 

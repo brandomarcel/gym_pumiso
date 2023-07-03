@@ -22,18 +22,20 @@ export class AddMembresiasComponent implements OnInit {
 
   ngOnInit(): void {
     this.fecha_registro = new Date();
+    this.fecha_inicio = formatDate((this.fecha_registro), 'yyyy-MM-dd', 'en-US');
+    this.fecha_registro.setMonth(this.fecha_registro.getMonth() + 1)
+    this.fecha_fin = formatDate(this.fecha_registro, 'yyyy-MM-dd', 'en-US');
+    console.log(this.fecha_inicio)
     this.getClientes();
   }
 
   getClientes(){
-    this.fecha_inicio = formatDate((this.fecha_registro), 'yyyy-MM-dd', 'en-US');
-  console.log(this.fecha_inicio)
-
-  this.fecha_registro.setMonth(this.fecha_registro.getMonth() + 1)
-  this.fecha_fin = formatDate(this.fecha_registro, 'yyyy-MM-dd', 'en-US');
     this.servicios.getClientes().subscribe((res:any)=>{
       console.log(res)
       this.listaClientes=res.message;
+      const cliActivos= this.listaClientes.filter((item=> (item.estado === 'Activo')))
+      this.listaClientes=cliActivos
+
     })
   }
 

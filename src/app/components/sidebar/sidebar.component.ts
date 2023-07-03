@@ -15,11 +15,11 @@ export const ROUTES: RouteInfo[] = [
     { path: '/list-membresias', title: 'Membresias',  icon:'card_membership', class: '' },
     { path: '/pesos', title: 'Somatometria',  icon:'accessibility', class: '' },
 
-    { path: '/table-list', title: 'Clientes List',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
+/*     { path: '/table-list', title: 'Clientes List',  icon:'content_paste', class: '' },
+    { path: '/typography', title: 'Typography',  icon:'library_books', class: '' }, */
    /*  { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' }, */
    /*  { path: '/maps', title: 'Maps',  icon:'location_on', class: '' }, */
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+   /*  { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' }, */
   /*   { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' }, */
 ];
 

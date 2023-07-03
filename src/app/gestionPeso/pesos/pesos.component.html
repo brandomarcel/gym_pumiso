@@ -1,0 +1,82 @@
+<div class="main-content">
+
+  
+
+  
+    <div class="row">
+        <div class="offset-md-3 col-md-6 col-sm-7" >
+            <div class="card">
+              <div class="card-header card-header-success"  style="background: rgb(54, 99, 247);">
+                <h4 class="card-title">Peso y Altura</h4>
+              </div>
+              <div class="card-body">
+                
+                <div class="row">
+                    <div class="col-md-12">
+                      <ng-select [items]="listaClientes" 
+                      placeholder="Cliente" 
+                      [notFoundText]="'No se encontraron datos'"
+                      bindLabel="nombres_completos" 
+                      bindValue="name" 
+                      [(ngModel)]="cliente">
+           </ng-select>
+                    </div>
+        
+                    
+                  </div>
+
+    
+                <div class="row">
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="peso" matInput placeholder="Peso(kg)" type="number">
+                    </mat-form-field>
+                  </div>
+    
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="altura" matInput placeholder="Altura(metros)" type="number">
+                    </mat-form-field>
+                  </div>
+    
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="imc" matInput placeholder="(IMC)" disabled>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="descripcion" matInput placeholder="Descripcion"  disabled>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="sobrepeso" matInput placeholder="Sobrepeso"  disabled>
+                    </mat-form-field>
+                  </div>
+    
+                  <div class="col-md-4" >
+                    <button mat-raised-button (click)="calcularIMC()" class="btn btn-warning pull-center">Calcular</button>
+                  </div>
+    
+                  
+                </div>
+    
+    
+                </div>
+                
+    
+                
+              </div>
+    
+            </div>
+  
+    </div>
+  
+    
+    <div class="row">
+      <div class="offset-md-5 col-md-2" >
+        <button mat-raised-button (click)="guardar()" class="btn btn-success pull-center">GUARDAR</button>
+      </div>
+    </div>
+  
