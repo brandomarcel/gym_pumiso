@@ -17,8 +17,8 @@ export class AddClienteComponent implements OnInit {
   apellidos: any = '';
   apodo: any = '';
   celular: any = '';
-  correo: any = '';
-  genero: any = '';
+  correo: any = 'sincorreo@gmail.com';
+  genero: any = 'Masculino';
   //Membresia
   fecha_inicio: any = '';
   fecha_fin: any = '';
@@ -56,7 +56,7 @@ export class AddClienteComponent implements OnInit {
       this.cedula=datos.cedula;
       this.nombres=datos.nombres;
       this.apellidos=datos.apellidos;
-      this.apodo=datos.cedula;
+      this.apodo=datos.apodo;
       this.correo=datos.correo;
       this.celular=datos.celular;
       this.genero=datos.genero;
@@ -92,7 +92,8 @@ console.log(validacion)
     this.servicios.crearCliente(cliente).subscribe((res:any)=>{
       console.log(res)
       if (res.message.estado == 'Exito') {
-        this.servicios.voz("BIENVENIDO "+this.apodo+" ");
+          this.servicios.voz("BIENVENIDO "+this.nombres +' '+ this.apellidos+" ");
+       
         this.servicios.sweetMensaje('success','CLIENTE REGISTRADO');
         this.router.navigate(['/list-clientes']);
         
@@ -140,8 +141,8 @@ console.log(validacion)
       }
 
   validar(){
-    if (!this.cedula || !this.nombres || !this.apellidos || !this.apodo
-      || !this.celular || !this.correo || !this.genero || !this.fecha_inicio || !this.fecha_fin
+    if (!this.nombres || !this.apellidos
+      || !this.celular || !this.genero || !this.fecha_inicio || !this.fecha_fin
       || !this.tipo_membresia || !this.valor) {
         return false;
     }else{
@@ -150,8 +151,8 @@ console.log(validacion)
   }
 
   validarEdit(){
-    if (!this.cedula || !this.nombres || !this.apellidos || !this.apodo
-      || !this.celular || !this.correo || !this.genero ) {
+    if (!this.nombres || !this.apellidos 
+      || !this.celular  || !this.genero ) {
         return false;
     }else{
       return true
