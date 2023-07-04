@@ -16,7 +16,7 @@ export class AddClienteComponent implements OnInit {
   nombres: any = '';
   apellidos: any = '';
   apodo: any = '';
-  celular: any = '';
+  celular: any = 'sincorreo@gmail.com';
   correo: any = '';
   genero: any = '';
   //Membresia
