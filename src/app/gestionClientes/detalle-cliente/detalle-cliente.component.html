@@ -1,0 +1,263 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+
+
+        <div class="row">
+            <div class="offset-md-2 col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-icon card-header-rose">
+                        <div class="card-icon">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <h4 class="card-title">BRANDO CEVALLITOS</h4>
+                    </div>
+                    <div class="card-body table-responsive " >
+                        <table class="r">
+                            <tr style="border: 5px;">
+                                <td class="col-md-2 " style="border: 5px;">
+                                    Cedula:
+                                </td>
+                                <td class="col-md-4 " >
+                                    brando cevallos
+                                </td>
+
+                                <td class="col-md-2 ">
+                                    Correo:
+                                </td>
+                                <td class="col-md-4 ">
+                                    brando cevallos@gmailcom
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td class="col-md-2 ">
+                                    Celular:
+                                </td>
+                                <td  class="col-md-3 ">
+                                    09898989898
+                                </td>
+
+                                <td class="col-md-3 ">
+                                    Fecha de Registro:
+                                </td>
+                                <td  class="col-md-2 ">
+                                    09898989898
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="col-md-2 ">
+                                    Usuario:
+                                </td>
+                                <td  class="col-md-3 ">
+                                    asdfasdfa
+                                </td>
+
+                                
+                            </tr>
+
+                        </table>
+
+
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+
+
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Membresias </h4>
+
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        N#
+                                    </th>
+                                    
+                                    <th>
+                                        Fecha inicio
+                                    </th>
+
+                                    <th>
+                                        Fecha fin
+                                    </th>
+                                    <th>
+                                        Membresia
+                                    </th>
+                                    <th>
+                                        Valor
+                                    </th>
+                                    <th>
+                                        Tipo de Pago
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+                                    <!-- <th style="text-align: center;">
+                                        Estado
+                                    </th> -->
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of listaMembresias ; let i = index">
+                                        <td>
+                                            {{i+1}}
+                                        </td>
+
+                                        <td class="text-primary">
+                                            {{item.fecha_inicio}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{item.fecha_fin}}
+                                        </td>
+                                        <td >
+                                            {{item.tipo_membresia}}
+                                        </td>
+                                        <td >
+                                            {{item.valor | currency}}
+                                        </td>
+                                        <td >
+                                            {{item.valor | currency}}
+                                        </td>
+                                        <td >
+                                            {{item.valor | currency}}
+                                        </td>
+                                        <!-- <td style="color: #68F50B; text-align: center;font: bold;">
+                                            Activo
+                                        </td> -->
+                                        <td class="td-actions text-right">
+                                   
+                                            <button (click)="deleteMembresia(item.name)" mat-raised-button type="button" matTooltip="Borrar"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+
+
+                    <div class="card-header card-header-success"  style="background: rgb(54, 99, 247);">
+                        <h4 class="card-title ">Indices de Masa Corporal </h4>
+
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        N#
+                                    </th>
+                                    
+                                    <th>
+                                        Peso
+                                    </th>
+
+                                    <th>
+                                        Altura
+                                    </th>
+                                    <th>
+                                        Fecha
+                                    </th>
+                                    <th>
+                                       IMC
+                                    </th>
+                                    <th>
+                                        Descripcion
+                                    </th>
+                                    <th>
+                                        Peso a subir/bajar
+                                    </th>
+                                    <!-- <th style="text-align: center;">
+                                        Estado
+                                    </th> -->
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of listaMembresias ; let i = index">
+                                        <td>
+                                            {{i+1}}
+                                        </td>
+
+                                        <td class="text-primary">
+                                            {{item.fecha_inicio}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{item.fecha_fin}}
+                                        </td>
+                                        <td >
+                                            {{item.tipo_membresia}}
+                                        </td>
+                                        <td >
+                                            {{item.valor | currency}}
+                                        </td>
+                                        <td >
+                                            {{item.valor | currency}}
+                                        </td>
+                                        <td >
+                                            {{item.valor | currency}}
+                                        </td>
+                                        <!-- <td style="color: #68F50B; text-align: center;font: bold;">
+                                            Activo
+                                        </td> -->
+                                        <td class="td-actions text-right">
+                                   
+                                            <button (click)="deleteMembresia(item.name)" mat-raised-button type="button" matTooltip="Borrar"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        
+
+
+    </div>
+</div>

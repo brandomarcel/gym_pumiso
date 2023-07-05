@@ -45,4 +45,9 @@ if (res == 'ok') {
     })
   }
 
+  onClick(item:any){
+    console.log(item)
+
+  }
+
 }

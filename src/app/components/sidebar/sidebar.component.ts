@@ -12,7 +12,10 @@ export const ROUTES: RouteInfo[] = [
 /*     { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' }, */
     
     { path: '/list-clientes', title: 'Clientes',  icon:'person', class: '' },
-    { path: '/list-membresias', title: 'Membresias',  icon:'card_membership', class: '' },
+    { path: '/add-cliente', title: 'Crear cliente',  icon:'person_add', class: '' },
+    { path: '/list-membresias', title: 'Agregar Membresia',  icon:'card_membership', class: '' },
+    { path: '/add-membresias', title: 'Membresias',  icon:'add_to_photos', class: '' },
+
     { path: '/pesos', title: 'Somatometria',  icon:'accessibility', class: '' },
 
 /*     { path: '/table-list', title: 'Clientes List',  icon:'content_paste', class: '' },

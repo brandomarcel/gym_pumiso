@@ -25,7 +25,7 @@
 
                     <div class="card-body" >
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-hover ">
                                 <thead class=" text-primary">
                                     <th>
                                         N#
@@ -48,7 +48,7 @@
                                     </th> -->
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of listaClientes ; let i = index">
+                                    <tr *ngFor="let item of listaClientes ; let i = index"  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
                                         <td>
                                             {{i+1}}
                                         </td>

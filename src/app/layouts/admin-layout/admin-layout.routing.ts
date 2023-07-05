@@ -1,3 +1,4 @@
+import { DetalleClienteComponent } from './../../gestionClientes/detalle-cliente/detalle-cliente.component';
 import { PesosComponent } from './../../gestionPeso/pesos/pesos.component';
 import { AddMembresiasComponent } from './../../gestionMembresias/add-membresias/add-membresias.component';
 import { ListMembresiasComponent } from './../../gestionMembresias/list-membresias/list-membresias.component';
@@ -66,9 +67,13 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'list-clientes',     component: ListClientesComponent },
     { path: 'list-clientes/add-cliente',     component: AddClienteComponent },
+    { path: 'add-cliente',     component: AddClienteComponent },
     { path: 'list-clientes/edit-cliente/:name',     component: AddClienteComponent },
-
+    { path: 'list-clientes/detalle-cliente/:name',     component: DetalleClienteComponent },
+    
+    
     { path: 'list-membresias',     component:  ListMembresiasComponent},
+    { path: 'add-membresias',     component:  AddMembresiasComponent},
     { path: 'list-membresias/add-membresias',     component: AddMembresiasComponent },
     { path: 'list-membresias/edit-membresias/:id',     component: AddMembresiasComponent },
 
