@@ -14,6 +14,7 @@ export class AddMembresiasComponent implements OnInit {
   fecha_fin: any = '';
   tipo_membresia: any = 'Mensual';
   valor: any = '25';
+  tipo_pago: any = 'Efectivo';
 
   fecha_registro: any = '';
   listaClientes:Array<any>=[];
@@ -48,7 +49,7 @@ export class AddMembresiasComponent implements OnInit {
         let cliente = {
           'cliente': this.cliente,'fecha_inicio': this.fecha_inicio,
           'fecha_fin': this.fecha_fin, 'tipo_membresia': this.tipo_membresia,
-          'valor': this.valor,
+          'valor': this.valor,'tipo_pago': this.tipo_pago,
         }
     
         this.servicios.crearMembresia(cliente).subscribe((res:any)=>{

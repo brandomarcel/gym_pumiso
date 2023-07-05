@@ -24,6 +24,7 @@ export class AddClienteComponent implements OnInit {
   fecha_fin: any = '';
   tipo_membresia: any = 'Mensual';
   valor: any = '25';
+  tipo_pago: any = 'Efectivo';
   //Peso y altura
   peso: any = '';
   altura: any = '';
@@ -85,21 +86,28 @@ console.log(validacion)
       'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
       'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_registro': this.fecha,'genero': this.genero,
       'fecha_inicio': this.fecha_inicio,'fecha_fin': this.fecha_fin, 'tipo_membresia': this.tipo_membresia, 'valor': this.valor,
-      'peso': this.peso, 'altura': this.altura, 'fecha': this.fecha, 'imc': this.imc, 'descripcion': this.descripcion,
+      'tipo_pago': this.tipo_pago,'peso': this.peso, 'altura': this.altura, 'fecha': this.fecha, 'imc': this.imc, 'descripcion': this.descripcion,
       'sobrepeso': this.sobrepeso
     }
 
     this.servicios.crearCliente(cliente).subscribe((res:any)=>{
       console.log(res)
       if (res.message.estado == 'Exito') {
-          this.servicios.voz("BIENVENIDO "+this.nombres +' '+ this.apellidos+" ");
+          this.servicios.voz("BIENVENIDO "+this.apodo +" ");
        
         this.servicios.sweetMensaje('success','CLIENTE REGISTRADO');
         this.router.navigate(['/list-clientes']);
         
+      }else{
+        this.servicios.sweetMensaje('error',"La cedula:"+this.cedula +" ya se encuentra registrada! ");
       }
       
-    })
+    },error =>{
+
+   
+      this.servicios.sweetMensaje('error','Error de conexión!');
+  
+      });
 
     
 
@@ -141,7 +149,7 @@ console.log(validacion)
       }
 
   validar(){
-    if (!this.nombres || !this.apellidos
+    if (!this.cedula || !this.nombres || !this.apellidos
       || !this.celular || !this.genero || !this.fecha_inicio || !this.fecha_fin
       || !this.tipo_membresia || !this.valor) {
         return false;
