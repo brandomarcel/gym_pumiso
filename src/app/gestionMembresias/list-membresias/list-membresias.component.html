@@ -48,9 +48,9 @@
                                     <th>
                                         Valor
                                     </th>
-                                    <!-- <th style="text-align: center;">
+                                    <th style="text-align: center;">
                                         Estado
-                                    </th> -->
+                                    </th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let item of listaMembresias ; let i = index">
@@ -74,9 +74,13 @@
                                         <td >
                                             {{item.valor | currency}}
                                         </td>
-                                        <!-- <td style="color: #68F50B; text-align: center;font: bold;">
+                                        <td *ngIf="item.estado == 1"  style="color: #6ee728; text-align: center;font: bold; font-size: 20px;">
                                             Activo
-                                        </td> -->
+                                        </td>
+
+                                        <td *ngIf="item.estado == 0"  style="color: #f50b0b; text-align: center;font: bold;font-size: 20px;">
+                                            Terminado
+                                        </td>
                                         <td class="td-actions text-right">
                                    
                                             <button (click)="deleteMembresia(item.name)" mat-raised-button type="button" matTooltip="Borrar"

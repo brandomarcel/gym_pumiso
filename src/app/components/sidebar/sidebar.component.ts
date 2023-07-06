@@ -13,8 +13,8 @@ export const ROUTES: RouteInfo[] = [
     
     { path: '/list-clientes', title: 'Clientes',  icon:'person', class: '' },
     { path: '/add-cliente', title: 'Crear cliente',  icon:'person_add', class: '' },
-    { path: '/list-membresias', title: 'Agregar Membresia',  icon:'card_membership', class: '' },
-    { path: '/add-membresias', title: 'Membresias',  icon:'add_to_photos', class: '' },
+    { path: '/list-membresias', title: ' Membresias ',  icon:'card_membership', class: '' },
+    { path: '/add-membresias', title: 'Agregar Membresia',  icon:'add_to_photos', class: '' },
 
     { path: '/pesos', title: 'Somatometria',  icon:'accessibility', class: '' },
 

@@ -37,6 +37,13 @@ export class ServiciosService {
     return this.httpClient.post(url,dato,{ headers: this.token, responseType: 'json' });
   }
 
+  getAlldetalleClientes(name) {
+    console.log(name)
+    let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.getAlldetalleClientes'
+    let dato = { name: String(name) }
+    return this.httpClient.post(url,dato,{ headers: this.token, responseType: 'json' });
+  }
+
   crearCliente(datos) {
     let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.crearCliente'
     let dato = { datos: datos }
@@ -82,6 +89,12 @@ export class ServiciosService {
  createPeso(datos) {
   let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.createPeso'
   let dato = { datos: datos }
+  return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
+}
+
+deletePeso(name) {
+  let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.deletePeso'
+  let dato = { name: String(name) }
   return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
 }
 

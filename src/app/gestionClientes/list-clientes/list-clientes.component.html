@@ -30,6 +30,10 @@
                                     <th>
                                         N#
                                     </th>
+
+                                    <th>
+                                        Cedula
+                                    </th>
                                    
                                     <th>
                                         Nombres
@@ -48,20 +52,25 @@
                                     </th> -->
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of listaClientes ; let i = index"  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
-                                        <td>
+                                    <tr *ngFor="let item of listaClientes ; let i = index" >
+                                        
+                                        <td  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
                                             {{i+1}}
                                         </td>
+
+                                        <td  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
+                                            {{item.cedula}}
+                                        </td>
                                        
-                                        <td>
+                                        <td  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
                                             {{item.nombres_completos}}
                                         </td>
 
-                                        <td>
+                                        <td  [routerLink]="['/list-clientes/detalle-cliente/',item.name]" >
                                             {{item.celular}}
-                                        </td>
+                                        </td >
 
-                                        <td class="text-warning">
+                                        <td class="text-warning"  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
                                             {{item.fecha_registro}}
                                         </td>
                                         <!-- <td style="color: #68F50B; text-align: center;font: bold;">
@@ -74,7 +83,7 @@
                                                 class="btn btn-primary btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">edit</i>
                                             </button>
-                                            <button (click)="estadoCliente(item.name)" mat-raised-button type="button" matTooltip="Desactivar"
+                                            <button (click)="estadoCliente(item.name)" mat-raised-button type="button" matTooltip="Borrar"
                                                 [matTooltipPosition]="'above'"
                                                 class="btn btn-danger btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">delete</i>

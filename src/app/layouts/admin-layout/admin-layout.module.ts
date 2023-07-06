@@ -1,3 +1,4 @@
+import { DetalleClienteComponent } from './../../gestionClientes/detalle-cliente/detalle-cliente.component';
 import { PesosComponent } from './../../gestionPeso/pesos/pesos.component';
 import { ListMembresiasComponent } from './../../gestionMembresias/list-membresias/list-membresias.component';
 import { AddMembresiasComponent } from './../../gestionMembresias/add-membresias/add-membresias.component';
@@ -58,6 +59,7 @@ AddClienteComponent
 
     ListClientesComponent,
     AddClienteComponent,
+    DetalleClienteComponent,
 
     AddMembresiasComponent,
     ListMembresiasComponent,
