@@ -1,11 +1,11 @@
+import { RegistroAsistenciaComponent } from './../../registro-asistencia/registro-asistencia.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { DetalleClienteComponent } from './../../gestionClientes/detalle-cliente/detalle-cliente.component';
 import { PesosComponent } from './../../gestionPeso/pesos/pesos.component';
 import { ListMembresiasComponent } from './../../gestionMembresias/list-membresias/list-membresias.component';
 import { AddMembresiasComponent } from './../../gestionMembresias/add-membresias/add-membresias.component';
 import { ListClientesComponent } from './../../gestionClientes/list-clientes/list-clientes.component';
 import { AddClienteComponent } from './../../gestionClientes/add-cliente/add-cliente.component';
-
-
 
 
 import { NgModule } from '@angular/core';
@@ -28,9 +28,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
-AddClienteComponent
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -43,7 +45,10 @@ AddClienteComponent
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    NgSelectModule
+    NgSelectModule,
+    ZXingScannerModule,
+    QRCodeModule,
+    ZXingScannerModule
     
   ],
   declarations: [
@@ -63,6 +68,8 @@ AddClienteComponent
 
     AddMembresiasComponent,
     ListMembresiasComponent,
+
+    RegistroAsistenciaComponent,
 
     PesosComponent
   ]

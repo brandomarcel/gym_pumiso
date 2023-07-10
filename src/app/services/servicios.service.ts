@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
+import { Observable } from 'rxjs';
 
 environment
 import Swal from 'sweetalert2';
@@ -96,6 +97,10 @@ deletePeso(name) {
   let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.deletePeso'
   let dato = { name: String(name) }
   return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
+}
+
+sendData(data: string): Observable<any> {
+  return this.httpClient.post<any>('https://example.com/api/data', { data });
 }
 
 

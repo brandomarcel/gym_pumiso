@@ -9,6 +9,9 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  dataUri = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAEIAAABCAQAAAADLLz1FAAAAAnRSTlMAAQGU/a4AAAChSURBVHicrdIxCgQxCAVQwTYwVwnYCl49kFbwKgO2AXdYJsv+2XatXqVfkequQX8ScRudDGQ5Vhaqi7LwU6f/SvMpy+Ddb4tYZM/dqiLf+T6aMUUM5KGuXKAcrD5RZ4hIoZbI0jTQ4S2yoYwbOaP6FYG0QNJj0GGgKk6zAhFHl4ayNLf74ltd1qL3Rt+aXcIeyjUTdV1XphWIOE9WA/33h167g4M05UGLzwAAAABJRU5ErkJggg==';
+
   clientes: any = "";
   listaClientes: any = "";
   membresias: any = "";
@@ -196,5 +199,7 @@ export class DashboardComponent implements OnInit {
       this.listaMembresias = res.message;
     })
   }
+
+
 
 }
