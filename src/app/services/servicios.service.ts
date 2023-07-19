@@ -66,10 +66,10 @@ export class ServiciosService {
 
   //MEMBRESIAS
 
-  getMembresias() {
+  getMembresias(todos:any) {
     let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.getMembresias'
-
-    return this.httpClient.get(url, { headers: this.token, responseType: 'json' });
+const dato={'todos':todos}
+    return this.httpClient.post(url,dato, { headers: this.token, responseType: 'json' });
   }
 
 
@@ -177,8 +177,9 @@ sendData(data: string): Observable<any> {
     const synth = window.speechSynthesis;
 const utterThis = new SpeechSynthesisUtterance(texto);
 console.log(utterThis)
-utterThis['pitch'] = 0.1;
-
+utterThis.pitch = 0.5;
+utterThis.rate = 0.4; // Reducir la velocidad de la voz a la mitad
+utterThis.volume = 1;
 
 console.log(utterThis)
 synth.speak(utterThis);

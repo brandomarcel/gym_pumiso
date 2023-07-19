@@ -18,7 +18,7 @@ export class RegistroAsistenciaComponent implements OnInit {
   title = 'qr-reader';
   public cameras:MediaDeviceInfo[]=[];
   public myDevice!: MediaDeviceInfo;
-  public scannerEnabled=false;
+  public scannerEnabled:any=false;
   public results:string[]=[];
   sendingData:any;
 
@@ -51,8 +51,8 @@ export class RegistroAsistenciaComponent implements OnInit {
     this.results.unshift(event); */
   }
 
-  selectCamera(cameraLabel: string){    
-    this.cameras.forEach(camera=>{
+  async selectCamera(cameraLabel: string){    
+    await this.cameras.forEach(camera=>{
       if(camera.label.includes(cameraLabel)){
         this.myDevice=camera;
         console.log(camera.label);
@@ -73,9 +73,6 @@ export class RegistroAsistenciaComponent implements OnInit {
    
   }
 
-  onScanError(error: Error) {
-    console.error(error);
-    // take appropriate actions
-  }
+
 
 }

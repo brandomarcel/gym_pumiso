@@ -42,7 +42,7 @@ export class AddClienteComponent implements OnInit {
 
   ngOnInit(): void {
 
-  /* this.servicios.voz('TU MEMBRESIA MICHU EN 3 DIAS'); */
+  this.servicios.voz('BIENVENIDA MICHELLE');
 
 
   this.fecha_registro = new Date();

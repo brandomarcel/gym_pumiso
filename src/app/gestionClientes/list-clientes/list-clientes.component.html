@@ -52,7 +52,7 @@
                                     </th> -->
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of listaClientes ; let i = index" >
+                                    <tr *ngFor="let item of listaClientes | paginate: { itemsPerPage: 10, currentPage: p }; let i = index" >
                                         
                                         <td  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
                                             {{i+1}}
@@ -90,9 +90,7 @@
                                             </button>
                                         </td>
                                     </tr>
-
-
-
+                                   
 
 
                                 </tbody>
@@ -100,6 +98,12 @@
                         </div>
                     </div>
                 </div>
+                <div style="text-align: center;color: black;">
+                    <pagination-controls (pageChange)="p = $event"
+                    previousLabel="Atras"
+                      nextLabel="Siguiente"></pagination-controls>
+                </div>
+                
             </div>
 
         </div>

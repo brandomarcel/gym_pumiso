@@ -74,13 +74,13 @@
                                         <td >
                                             {{item.valor | currency}}
                                         </td>
-                                        <td *ngIf="item.estado == 1"  style="color: #6ee728; text-align: center;font: bold; font-size: 20px;">
-                                            Activo
-                                        </td>
-
-                                        <td *ngIf="item.estado == 0"  style="color: #f50b0b; text-align: center;font: bold;font-size: 20px;">
-                                            Terminado
-                                        </td>
+                                        
+                                        <td  >
+                                            <div [style]="item.style">
+                                                {{item.membresia}}
+                                            </div>
+                                            
+                                         </td>
                                         <td class="td-actions text-right">
                                    
                                             <button (click)="deleteMembresia(item.name)" mat-raised-button type="button" matTooltip="Borrar"

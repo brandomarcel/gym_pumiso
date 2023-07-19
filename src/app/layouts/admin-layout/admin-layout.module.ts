@@ -29,7 +29,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { QRCodeModule } from 'angularx-qrcode';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -48,7 +48,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     NgSelectModule,
     ZXingScannerModule,
     QRCodeModule,
-    ZXingScannerModule
+    ZXingScannerModule,
+    NgxPaginationModule
     
   ],
   declarations: [

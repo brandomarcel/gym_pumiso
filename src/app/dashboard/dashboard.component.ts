@@ -10,8 +10,8 @@ import { formatDate } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
 
-  dataUri = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAEIAAABCAQAAAADLLz1FAAAAAnRSTlMAAQGU/a4AAAChSURBVHicrdIxCgQxCAVQwTYwVwnYCl49kFbwKgO2AXdYJsv+2XatXqVfkequQX8ScRudDGQ5Vhaqi7LwU6f/SvMpy+Ddb4tYZM/dqiLf+T6aMUUM5KGuXKAcrD5RZ4hIoZbI0jTQ4S2yoYwbOaP6FYG0QNJj0GGgKk6zAhFHl4ayNLf74ltd1qL3Rt+aXcIeyjUTdV1XphWIOE9WA/33h167g4M05UGLzwAAAABJRU5ErkJggg==';
-
+  /* dataUri = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAEIAAABCAQAAAADLLz1FAAAAAnRSTlMAAQGU/a4AAAChSURBVHicrdIxCgQxCAVQwTYwVwnYCl49kFbwKgO2AXdYJsv+2XatXqVfkequQX8ScRudDGQ5Vhaqi7LwU6f/SvMpy+Ddb4tYZM/dqiLf+T6aMUUM5KGuXKAcrD5RZ4hIoZbI0jTQ4S2yoYwbOaP6FYG0QNJj0GGgKk6zAhFHl4ayNLf74ltd1qL3Rt+aXcIeyjUTdV1XphWIOE9WA/33h167g4M05UGLzwAAAABJRU5ErkJggg==';
+ */
   clientes: any = "";
   listaClientes: any = "";
   membresias: any = "";
@@ -86,10 +86,28 @@ export class DashboardComponent implements OnInit {
 
     this.getClientes();
     this.getMembresias();
-    /* ----------==========     Daily Sales Chart initialization For Documentation    ==========----------
-    PONER EL DAYLIU SALES
-    */
+    /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
+/*     const dataDailySalesChart: any = {
+      labels: ['SEM 1', 'SEM 1', 'SEM 1', 'SEM 1'],
+      series: [
+          [12, 17, 7, 17]
+      ]
+  };
+
+ const optionsDailySalesChart: any = {
+      lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 0
+      }),
+      low: 0,
+      high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
+  }
+
+  var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+  this.startAnimationForLineChart(dailySalesChart);
+ */
 
   }
 
@@ -193,7 +211,7 @@ export class DashboardComponent implements OnInit {
     })
   }
   getMembresias() {
-    this.servicios.getMembresias().subscribe((res: any) => {
+    this.servicios.getMembresias('').subscribe((res: any) => {
       console.log(res)
       this.membresias = res.message.length;
       this.listaMembresias = res.message;
