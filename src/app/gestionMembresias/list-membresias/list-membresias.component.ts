@@ -33,28 +33,36 @@ export class ListMembresiasComponent implements OnInit {
       this.listaMembresias.forEach(element => {
         const fechaFinalizacion = new Date(element.fecha_fin)
         const fecha = new Date();
-        console.log(this.fecha)
-        const diferenciaDias = Math.ceil((fecha.getTime() - fechaFinalizacion.getTime()) / (1000 * 60 * 60 * 24));
-        console.log(diferenciaDias)
 
         const diferenciaTiempos = fechaFinalizacion.getTime() - fecha.getTime();
+
+        console.error('diferenciaTiempos',diferenciaTiempos)
         const diferenciaDiass = Math.ceil(diferenciaTiempos / (1000 * 60 * 60 * 24));
 
         console.log(`Faltan  ${element.fecha_fin } ${diferenciaDiass} días para que se cumpla la fecha de finalización.`);
 
-    if ((diferenciaDiass <= 5) && (diferenciaDiass > 0)) {
-          console.log('diferenciaDias');
+    if ((diferenciaDiass <= 5) && (diferenciaDiass >= 1)) {
+       
           const mensaje = `${diferenciaDiass} día(s) restante(s)`;
           element.membresia = mensaje
           element.style = ' color: black;background-color: yellow;border-radius: 10px;text-align: center'
           // Mostrar el mensaje en la página o en la consola
           console.log(mensaje);
-        }else if ((diferenciaDiass <= 0)) {
-          console.log('diferenciaDias');
+        }else if ((diferenciaDiass <= -1)) {
+         
           element.membresia = 'TERMINADA'
           element.style = ' color: white;background-color: red;border-radius: 10px;text-align: center'
 
           const mensaje = `SE HA TERMINADO LA MEMBRESIA ${element.fecha_fin } ${diferenciaDiass} días.`;
+          // Mostrar el mensaje en la página o en la consola
+          console.log(mensaje);
+        }else if ((diferenciaDiass == 0)) {
+         
+          const mensaje = `Hoy ultimo dia`;
+          element.membresia = mensaje
+          element.style = ' color: black;background-color: yellow;border-radius: 10px;text-align: center'
+          // Mostrar el mensaje en la página o en la consola
+          console.log(mensaje);
           // Mostrar el mensaje en la página o en la consola
           console.log(mensaje);
         } else {
@@ -65,7 +73,9 @@ export class ListMembresiasComponent implements OnInit {
         } 
 
       });
-
+      console.log(this.listaMembresias)
+      this.listaMembresias.sort((a, b) => b.creation - a.creation);
+      console.log('sort',this.listaMembresias)
 
     })
   }
