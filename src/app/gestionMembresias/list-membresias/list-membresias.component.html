@@ -14,8 +14,25 @@
             <app-add-membresias></app-add-membresias>
         </div> -->
 
+
         <div class="row">
+            
             <div class="col-md-12">
+
+                <div class="box">
+                    <div class="container-3">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <input type="search" id="search" [(ngModel)]="searchText" placeholder="Buscar....." />
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            
+            <div class="col-md-12">
+
                 <div class="card">
 
 
@@ -25,6 +42,43 @@
 
 
                     </div>
+
+                    <div class="card-header card-header-tabs card-header-primary">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Filtrar por:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item" (click)="search('')">
+                                        <a mat-button class="nav-link active"  id="all" data-toggle="tab">
+                                           Todos
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" (click)="search('ACTIVA')">
+                                        <a mat-button class="nav-link "  id="all" data-toggle="tab">
+                                           Activas
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" (click)="search('PROXIMO')">
+                                        <a mat-button class="nav-link" id="prox"  data-toggle="tab">
+                                           Proximas
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" (click)="search('TERMINADA')">
+                                        <a mat-button class="nav-link"  id="end"  data-toggle="tab">
+                                             Terminadas
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -53,7 +107,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of listaMembresias ; let i = index">
+                                    <tr *ngFor="let item of listaMembresias  | filter: searchText; let i = index">
                                         <td>
                                             {{i+1}}
                                         </td>

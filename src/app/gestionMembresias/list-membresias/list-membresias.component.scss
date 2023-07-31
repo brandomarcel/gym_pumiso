@@ -17,3 +17,54 @@
       display: block;
       background: #FFFFFF;
       opacity: .93; }
+
+
+
+      .container-3{
+        width: 300px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+      }
+      .container-3 input#search{
+        width: 300px;
+        height: 50px;
+        background: #2b303b;
+        border: none;
+        font-size: 13pt;
+        float: left;
+        color: #262626;
+        padding-left: 45px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        color: #fff;
+      }
+
+      .container-3 .icon{
+        position: absolute;
+        top: 50%;
+        margin-left: 17px;
+        margin-top: 17px;
+        z-index: 1;
+        color: #ebecec;
+         -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+      }
+
+
+      .nav-link.active#all {
+        background-color: rgb(14, 209, 14);
+        color: #262626;
+      }
+      .nav-link.active#prox {
+        background-color: rgb(255, 238, 0);
+      }
+      .nav-link.active#end {
+        background-color: red;
+      }
+
+ 

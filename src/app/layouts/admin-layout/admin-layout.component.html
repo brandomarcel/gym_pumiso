@@ -1,10 +1,10 @@
 <div class="wrapper">
-    <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
-        <app-sidebar></app-sidebar>
+    <div *ngIf="mostrarMenu"  class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+        <app-sidebar *ngIf="mostrarMenu"   ></app-sidebar>
         <div class="sidebar-background" style="background-image: url(./assets/img/olimpologo.png)"></div>
     </div>
-    <div class="main-panel">
-        <app-navbar></app-navbar>
+    <div  class="main-panel">
+        <app-navbar *ngIf="mostrarMenu" ></app-navbar>
         <router-outlet></router-outlet>
         <div *ngIf="isMaps('maps')">
             <app-footer></app-footer>

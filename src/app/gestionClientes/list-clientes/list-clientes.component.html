@@ -52,7 +52,7 @@
                                     </th> -->
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of listaClientes | paginate: { itemsPerPage: 10, currentPage: p }; let i = index" >
+                                    <tr *ngFor="let item of listaClientes | paginate: { itemsPerPage: 20, currentPage: p }; let i = index" >
                                         
                                         <td  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
                                             {{i+1}}

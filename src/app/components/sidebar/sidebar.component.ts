@@ -18,7 +18,9 @@ export const ROUTES: RouteInfo[] = [
 
     { path: '/pesos', title: 'Somatometria',  icon:'accessibility', class: '' },
 
-    { path: '/registro-asistencia', title: 'Asistencia',  icon:'personal_video', class: '' },
+    /* { path: '/asistencia', title: 'Asistencia',  icon:'personal_video', class: '' }, */
+    
+
 
 /*     { path: '/table-list', title: 'Clientes List',  icon:'content_paste', class: '' },
     { path: '/typography', title: 'Typography',  icon:'library_books', class: '' }, */

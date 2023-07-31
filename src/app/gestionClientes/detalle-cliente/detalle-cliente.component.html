@@ -1,10 +1,16 @@
 <div class="main-content">
     <div class="container-fluid">
-
-
+   
+        <button routerLink="/list-clientes" mat-raised-button class="btn btn-secondary pull-center" style="background-color: #757575; color: white;"  > <i class="material-icons"  >keyboard_backspace</i>    Atras</button>
+       <!--  <button (click)="sendImage()" mat-raised-button type="button" matTooltip="Borrar"
+        [matTooltipPosition]="'above'"
+        class="btn btn-danger btn-link btn-sm btn-just-icon">
+        <i class="material-icons">ENVIAR IMAGEN</i>
+    </button> -->
 
         <div class="row">
-            <div class="offset-md-2 col-md-8">
+            
+            <div class="offset-md-1 col-md-7">
                 <div class="card">
                     <div class="card-header card-header-icon card-header-rose">
                         <div class="card-icon">
@@ -16,14 +22,14 @@
                     <div class="card-body table-responsive " >
                         <table class="r">
                             <tr style="border: 5px;">
-                                <td class="col-md-2 " style="border: 5px;">
+                                <td class="col-md-2 " style="border: 5px; font-weight: bold;">
                                     Cedula:
                                 </td>
                                 <td class="col-md-4 " >
                                     {{detalleCliente.cedula}}
                                 </td>
 
-                                <td class="col-md-2 ">
+                                <td class="col-md-2 " style="border: 5px; font-weight: bold;">
                                     Correo:
                                 </td>
                                 <td class="col-md-4 ">
@@ -33,31 +39,37 @@
 
                             </tr>
                             <tr>
-                                <td class="col-md-2 ">
+                                <td class="col-md-2 " style="border: 5px; font-weight: bold;">
                                     Celular:
                                 </td>
                                 <td  class="col-md-3 ">
                                     {{detalleCliente.celular}}
                                 </td>
 
-                                <td class="col-md-3 ">
+                                <td class="col-md-3 " style="border: 5px; font-weight: bold;">
                                     Fecha de Registro:
                                 </td>
                                 <td  class="col-md-2 ">
                                     {{detalleCliente.fecha_registro}}
                                 </td>
-
+                               
                             </tr>
 
                             <tr>
-                                <td class="col-md-2 ">
+                                <td class="col-md-2 " style="border: 5px; font-weight: bold;">
                                     Usuario:
                                 </td>
                                 <td  class="col-md-3 ">
                                     {{detalleCliente.cedula}}
                                 </td>
 
-                                
+                                <td class="col-md-6 " style="border: 5px; font-weight: bold;">
+                                    Fecha de Nacimiento:
+                                </td>
+                                <td  class="col-md-1 ">
+                                    {{detalleCliente.fecha_nac || 'Sin fecha'}}
+                                </td>
+
                             </tr>
 
                         </table>
@@ -66,6 +78,21 @@
                        
                     </div>
                 </div>
+            </div>
+
+            <div *ngIf="detalleCliente.codigoqr"  class="col-md-3" style="background-color: rgb(255, 255, 255); display: flex;
+            align-items: center;
+            justify-content: center;">
+              
+                <img style=" display: block;" [src]="dataUri">
+               
+                
+            </div>
+            <div *ngIf="!detalleCliente.codigoqr"  class="col-md-3" style="background-color: rgb(255, 255, 255);display: flex;
+            align-items: center;
+            justify-content: center;">
+            <button routerLink="/list-clientes" mat-raised-button class="btn btn-secondary pull-center" style="background-color: #2e89df; color: white;"  >
+                 <i class="material-icons"  >aspect_ratio</i>    Generar QR</button>
             </div>
 
         </div>

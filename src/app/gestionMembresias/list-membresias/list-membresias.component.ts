@@ -9,8 +9,10 @@ import { formatDate } from '@angular/common';
 })
 export class ListMembresiasComponent implements OnInit {
   listaMembresias: any = []
+  listaMembresiasAux: any = []
   mostrarMemb: boolean = false
   fecha: any;
+  searchText: string;
 
   constructor(private servicios: ServiciosService) { }
 
@@ -19,6 +21,19 @@ export class ListMembresiasComponent implements OnInit {
 
     this.fecha = new Date();
     this.fecha = formatDate((this.fecha), 'yyyy-MM-dd', 'en-US')
+  }
+
+  search(val){
+    console.log(val)
+    if (val) {
+      console.log('entro val', val)
+      const variableOne:any = this.listaMembresiasAux.filter(item => (item.estado === val)); 
+      this.listaMembresias= variableOne;
+    }else{
+      this.listaMembresias = this.listaMembresiasAux
+    }
+
+ 
   }
 
 
@@ -45,12 +60,14 @@ export class ListMembresiasComponent implements OnInit {
        
           const mensaje = `${diferenciaDiass} día(s) restante(s)`;
           element.membresia = mensaje
+          element.estado = 'PROXIMO'
           element.style = ' color: black;background-color: yellow;border-radius: 10px;text-align: center'
           // Mostrar el mensaje en la página o en la consola
           console.log(mensaje);
         }else if ((diferenciaDiass <= -1)) {
          
           element.membresia = 'TERMINADA'
+          element.estado = 'TERMINADA'
           element.style = ' color: white;background-color: red;border-radius: 10px;text-align: center'
 
           const mensaje = `SE HA TERMINADO LA MEMBRESIA ${element.fecha_fin } ${diferenciaDiass} días.`;
@@ -60,6 +77,7 @@ export class ListMembresiasComponent implements OnInit {
          
           const mensaje = `Hoy ultimo dia`;
           element.membresia = mensaje
+          element.estado = 'PROXIMO'
           element.style = ' color: black;background-color: yellow;border-radius: 10px;text-align: center'
           // Mostrar el mensaje en la página o en la consola
           console.log(mensaje);
@@ -69,6 +87,7 @@ export class ListMembresiasComponent implements OnInit {
 
 
           element.membresia = 'ACTIVA'
+          element.estado = 'ACTIVA'
           element.style = 'color: black;background-color: rgb(14, 209, 14);border-radius: 10px;text-align: center'
         } 
 
@@ -76,7 +95,7 @@ export class ListMembresiasComponent implements OnInit {
       console.log(this.listaMembresias)
       this.listaMembresias.sort((a, b) => b.creation - a.creation);
       console.log('sort',this.listaMembresias)
-
+      this.listaMembresiasAux =this.listaMembresias
     })
   }
 

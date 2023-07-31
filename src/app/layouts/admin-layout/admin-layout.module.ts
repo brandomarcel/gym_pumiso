@@ -1,4 +1,4 @@
-import { RegistroAsistenciaComponent } from './../../registro-asistencia/registro-asistencia.component';
+
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { DetalleClienteComponent } from './../../gestionClientes/detalle-cliente/detalle-cliente.component';
 import { PesosComponent } from './../../gestionPeso/pesos/pesos.component';
@@ -30,6 +30,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { QRCodeModule } from 'angularx-qrcode';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FilterPipe } from '../../components/filter.pipe';
 
 
 
@@ -48,7 +49,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgSelectModule,
     ZXingScannerModule,
     QRCodeModule,
-    ZXingScannerModule,
     NgxPaginationModule
     
   ],
@@ -70,9 +70,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddMembresiasComponent,
     ListMembresiasComponent,
 
-    RegistroAsistenciaComponent,
-
-    PesosComponent
+   
+    PesosComponent,
+    FilterPipe
   ]
 })
 

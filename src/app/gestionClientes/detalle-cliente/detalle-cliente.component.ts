@@ -14,6 +14,17 @@ export class DetalleClienteComponent implements OnInit {
   detalleCliente: any = "";
   listMembresia: any = [];
   listPesos: any = [];
+  dataUri:any=''
+  phoneNumber = '+593984086761'; // Número de teléfono de destino
+  message = '¡𝐻𝒪𝐿𝒜 𝐵𝐼𝐸𝒩𝒱𝐸𝒩𝐼𝒟𝒪%0a 𝒜 𝒪𝐿𝐼𝑀𝒫𝒰𝒮 𝒢𝒴𝑀😂:';
+  nombnre='adsf'
+  imageBase64 = 'http://192.168.100.28:5050/files/foto_paquete%20(3).jpg'; // Base64 de la imagen
+
+  sendImage() {
+    const url = `https://api.whatsapp.com/send?phone=${this.phoneNumber}&text=${this.message}&data=image;base64,${encodeURIComponent(this.imageBase64)}`;
+    window.open(url);
+  }
+
   constructor(private servicios: ServiciosService, private activatedRoute: ActivatedRoute) {
     this.name = this.activatedRoute.snapshot.params['name']
     console.log(this.name)
@@ -37,6 +48,7 @@ export class DetalleClienteComponent implements OnInit {
 
       this.getMembresias()
       console.log(this.detalleCliente)
+      this.dataUri = 'data:image/png;base64,' + this.detalleCliente.codigoqr;
       console.log(this.listMembresia)
 
     })

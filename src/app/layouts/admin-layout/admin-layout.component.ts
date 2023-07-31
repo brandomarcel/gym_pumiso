@@ -14,10 +14,31 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+  mostrarMenu: boolean=true;
+  constructor( public location: Location, private router: Router) {
 
-  constructor( public location: Location, private router: Router) {}
+    this.router.events.subscribe((event) => {
+      
+        if (event instanceof NavigationStart || event instanceof NavigationEnd) {
+           
+ 
+    this.mostrarMenu = event.url !== '/asistencia';
+        }})
+
+    
+  }
+ 
 
   ngOnInit() {
+   
+    this.router.events.subscribe((event) => {
+        
+        if (event instanceof NavigationStart || event instanceof NavigationEnd) {
+           
+    
+    this.mostrarMenu = event.url !== '/asistencia';
+    if (event.url != '/asistencia') {
+   
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
@@ -35,9 +56,13 @@ export class AdminLayoutComponent implements OnInit {
       });
        this.router.events.subscribe((event:any) => {
           if (event instanceof NavigationStart) {
+            console.error('NavigationStart',event.url)
+            
              if (event.url != this.lastPoppedUrl)
                  this.yScrollStack.push(window.scrollY);
          } else if (event instanceof NavigationEnd) {
+            console.error('NavigationEnd',event.url)
+           
              if (event.url == this.lastPoppedUrl) {
                  this.lastPoppedUrl = undefined;
                  window.scrollTo(0, this.yScrollStack.pop());
@@ -46,12 +71,21 @@ export class AdminLayoutComponent implements OnInit {
          }
       });
       this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
-           elemMainPanel.scrollTop = 0;
-           elemSidebar.scrollTop = 0;
+              
+            elemMainPanel.scrollTop = 0;
+            elemSidebar.scrollTop = 0;
+                 
+        
+          
       });
-      if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-          let ps = new PerfectScrollbar(elemMainPanel);
-          ps = new PerfectScrollbar(elemSidebar);
+    
+      if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac() ) {
+
+        
+            let ps = new PerfectScrollbar(elemMainPanel);
+            ps = new PerfectScrollbar(elemSidebar);
+       
+         
       }
 
       const window_width = $(window).width();
@@ -125,6 +159,12 @@ export class AdminLayoutComponent implements OnInit {
               $sidebar_responsive.css('background-image','url("' + new_image + '")');
           }
       });
+    
+    }
+
+    }
+
+});
   }
   ngAfterViewInit() {
       this.runOnRouteChange();

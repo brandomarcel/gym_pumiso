@@ -10,8 +10,7 @@ import { formatDate } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
 
-  dataUri = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAEIAAABCAQAAAADLLz1FAAAAAnRSTlMAAQGU/a4AAAChSURBVHicrdIxCgQxCAVQwTYwVwnYCl49kFbwKgO2AXdYJsv+2XatXqVfkequQX8ScRudDGQ5Vhaqi7LwU6f/SvMpy+Ddb4tYZM/dqiLf+T6aMUUM5KGuXKAcrD5RZ4hIoZbI0jTQ4S2yoYwbOaP6FYG0QNJj0GGgKk6zAhFHl4ayNLf74ltd1qL3Rt+aXcIeyjUTdV1XphWIOE9WA/33h167g4M05UGLzwAAAABJRU5ErkJggg==';
-  dataUri2 = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAEIAAABCAQAAAADLLz1FAAAAAnRSTlMAAQGU/a4AAAChSURBVHicrdLBBgUxDAXQkO3QXynZlvvrZbalv1KyDXn1zPDuvO1kdQhxE5G8qstLEoUvAQku4cmqhtP0qT78TzPsoT1lWLJEzaqwMsu6891ahtIXSCWiBZIkKjsVSxFukwUf7g0kjToyWFajz5OFY7clSbW3IQWkzDZQkiS6D6Ksfe9EBamaTfl2f9Xmcjx09PMh+NS4trwl6kUcpHd/6APo4ImmwaoBjwAAAABJRU5ErkJggg==';
+  dataUri = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4 //8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
   clientes: any = "";
   listaClientes: any = "";
   membresias: any = "";

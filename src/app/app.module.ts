@@ -1,3 +1,4 @@
+import { RegistroAsistenciaComponent } from './registro-asistencia/registro-asistencia.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 
 
@@ -21,11 +23,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    NgSelectModule
+    NgSelectModule,
+    ZXingScannerModule
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    RegistroAsistenciaComponent,
+  
 
     
 

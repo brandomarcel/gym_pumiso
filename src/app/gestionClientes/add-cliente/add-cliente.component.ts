@@ -19,6 +19,7 @@ export class AddClienteComponent implements OnInit {
   celular: any = '';
   correo: any = 'sincorreo@gmail.com';
   genero: any = 'Masculino';
+  fecha_nac:any;
   //Membresia
   fecha_inicio: any = '';
   fecha_fin: any = '';
@@ -61,6 +62,7 @@ export class AddClienteComponent implements OnInit {
       this.correo=datos.correo;
       this.celular=datos.celular;
       this.genero=datos.genero;
+      this.fecha_nac=datos.fecha_nac;
      
       
     })
@@ -84,7 +86,7 @@ console.log(validacion)
    if (validacion == true) {
     let cliente = {
       'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
-      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'fecha_registro': this.fecha,'genero': this.genero,
+      'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo, 'fecha_nac': this.fecha_nac,'fecha_registro': this.fecha,'genero': this.genero,
       'fecha_inicio': this.fecha_inicio,'fecha_fin': this.fecha_fin, 'tipo_membresia': this.tipo_membresia, 'valor': this.valor,
       'tipo_pago': this.tipo_pago,'peso': this.peso, 'altura': this.altura, 'fecha': this.fecha, 'imc': this.imc, 'descripcion': this.descripcion,
       'sobrepeso': this.sobrepeso
@@ -125,7 +127,7 @@ console.log(validacion)
         let cliente = {
           'cedula': this.cedula, 'nombres': this.nombres, 'apellidos': this.apellidos,
           'apodo': this.apodo, 'celular': this.celular, 'correo': this.correo,'name':this.id,
-          'genero':this.genero
+          'genero':this.genero,'fecha_nac':this.fecha_nac
         }
         console.log(cliente)
         this.servicios.updateCliente(cliente).subscribe((res:any)=>{
