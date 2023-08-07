@@ -207,6 +207,8 @@ export class DashboardComponent implements OnInit {
 
       this.listaCLientesnuevos = this.listaClientes.slice(0, 5);
       
+    },error =>{
+      this.servicios.sweetMensaje('error','Error de conexion!')
     })
   }
   getMembresias() {

@@ -132,5 +132,16 @@ if (res == 'ok') {
     
   }
 
+  generarQR(name){
+    console.log(name)
+    this.servicios.generarQR(name).subscribe(res=>{
+      console.log(res)
+      this.servicios.sweetMensaje('success','QR generado.')
+      this.getAlldetalleClientes(this.name)
+    },error=>{
+      this.servicios.sweetMensaje('error','Error al generar el QR.')
+    })
+  }
+
 
 }

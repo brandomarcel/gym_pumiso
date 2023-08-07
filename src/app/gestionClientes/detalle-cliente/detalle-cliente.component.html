@@ -91,7 +91,7 @@
             <div *ngIf="!detalleCliente.codigoqr"  class="col-md-3" style="background-color: rgb(255, 255, 255);display: flex;
             align-items: center;
             justify-content: center;">
-            <button routerLink="/list-clientes" mat-raised-button class="btn btn-secondary pull-center" style="background-color: #2e89df; color: white;"  >
+            <button (click)="generarQR(detalleCliente.name)" mat-raised-button class="btn btn-secondary pull-center" style="background-color: #2e89df; color: white;"  >
                  <i class="material-icons"  >aspect_ratio</i>    Generar QR</button>
             </div>
 

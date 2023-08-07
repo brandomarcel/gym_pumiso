@@ -22,9 +22,13 @@ export class RegistroAsistenciaComponent implements OnInit {
   public results:string[]=[];
   sendingData:any;
 
+  user:any='';
+
   constructor(private servicios:ServiciosService) { }
 
   ngOnInit(): void {
+
+    
   }
 
 
@@ -62,12 +66,21 @@ export class RegistroAsistenciaComponent implements OnInit {
   }
 
   sendService(result: string) {
+
+    console.log(result)
     
-    this.servicios.getClientes().subscribe(response => {
-      console.log(response);
+    this.servicios.getAsitencia(result).subscribe((response:any) => {
+
+      this.user=response.message.user[0]
+      console.log(this.user);
+
+      this.servicios.voz(('BIENVENIDO'+this.user.nombres_completos))
       setTimeout(() => {
       this.sendingData = false;
-    }, 5000); 
+
+      this.user='';
+     
+    }, 7000); 
     });
   // espera 5 segundos antes de enviar el servicio
    

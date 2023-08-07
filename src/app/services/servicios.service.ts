@@ -99,6 +99,25 @@ deletePeso(name) {
   return this.httpClient.post(url, dato, { headers: this.token, responseType: 'json' });
 }
 
+//QR
+generarQR(name:any) {
+  let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.generarQR'
+  let dato = { name: String(name) }
+  return this.httpClient.post(url,dato, { headers: this.token, responseType: 'json' });
+}
+
+
+
+//asistencia
+getAsitencia(name:any) {
+  let url = this.apiUrl + 'api/method/olimpusgym.clientes.doctype.cliente.cliente.getAsitencia'
+const dato={'name':name}
+  return this.httpClient.post(url,dato, { headers: this.token, responseType: 'json' });
+}
+
+
+//////////////////
+
 sendData(data: string): Observable<any> {
   return this.httpClient.post<any>('https://example.com/api/data', { data });
 }

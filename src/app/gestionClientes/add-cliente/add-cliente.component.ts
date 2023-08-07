@@ -19,7 +19,7 @@ export class AddClienteComponent implements OnInit {
   celular: any = '';
   correo: any = 'sincorreo@gmail.com';
   genero: any = 'Masculino';
-  fecha_nac:any;
+  fecha_nac:any='';
   //Membresia
   fecha_inicio: any = '';
   fecha_fin: any = '';
@@ -98,10 +98,10 @@ console.log(validacion)
           this.servicios.voz("BIENVENIDO "+this.apodo +" ");
        
         this.servicios.sweetMensaje('success','CLIENTE REGISTRADO');
-        this.router.navigate(['/list-clientes']);
+       this.router.navigate(['/list-clientes']);
         
       }else{
-        this.servicios.sweetMensaje('error',"La cedula:"+this.cedula +" ya se encuentra registrada! ");
+        this.servicios.sweetMensaje('error',res.message.mensajeError);
       }
       
     },error =>{
