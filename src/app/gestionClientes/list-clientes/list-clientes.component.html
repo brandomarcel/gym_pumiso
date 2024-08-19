@@ -1,9 +1,25 @@
 <div class="main-content">
 
     <div class="container-fluid">
+        
+  
+
         <div style="text-align: end;align-items: end;border: none;">
             <button routerLink="/list-clientes/add-cliente" mat-raised-button class="btn btn-info btn-lg"> <i
                     class="material-icons">person_add</i> Agregar Cliente</button>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-md-12">
+
+                <div class="box">
+                    <div class="container-3">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <input type="search" id="search" [(ngModel)]="searchText" placeholder="Buscar....." />
+                    </div>
+                  </div>
+            </div>
         </div>
 
         <div class="row">
@@ -52,7 +68,7 @@
                                     </th> -->
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of listaClientes | paginate: { itemsPerPage: 20, currentPage: p }; let i = index" >
+                                    <tr *ngFor="let item of listaClientes | filter: searchText | paginate: { itemsPerPage: 20, currentPage: p }; let i = index" >
                                         
                                         <td  [routerLink]="['/list-clientes/detalle-cliente/',item.name]">
                                             {{i+1}}

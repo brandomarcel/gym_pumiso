@@ -1,13 +1,70 @@
-<p>registro-asistencia works!</p>
+<div class="container-fluid fondo">
+    <div style="font-size: 50px;margin-top: 20px;">
+        ▅ ▆ ▇ █ BIENVENIDO A OLIMPUS GYM █ ▇ ▆ ▅ </div>
+
+
+
+    <table>
+        <tr>
+            <td>
+                <div style="text-align: center;margin-top: 50px;">
+                    <zxing-scanner style="width: 500px;" [enable]="scannerEnabled" [device]="myDevice"
+                        (camerasFound)="camerasFoundHandler($event)"
+                        (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+
+                </div>
+            </td>
+            <td>
+                <div *ngIf="!user" class="logo-img">
+                    <img src="./assets/img/logoolimposolo.png" />
+                </div>
+
+
+
+                <div *ngIf="user" class="card">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title" style="font-size: 40px;">{{user.nombres_completos}}</h3>
+                    </div>
+                    <div class="card-body" style="background-color: yellow;">
+                        <span style="font-size: 30px;">Fecha de Inicio:</span> <span
+                            style="color: rgb(23, 163, 30);font-size: 40px;"> {{user.fecha_inicio}}</span> <br> <br>
+                        <span style="font-size: 30px;">Fecha de Fin:</span> <span
+                            style="color: rgb(23, 163, 30);font-size: 40px;"> {{user.fecha_fin}} </span>
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+
+                <div *ngIf="user">
+
+
+
+                    <section  [class]="style">
+                        <header></header>
+                        <h1>
+                            
+                            {{membresia}}!
+                        </h1>
+                    </section>
+
+                </div>
+
+
+            </td>
+        </tr>
+    </table>
 
 
 
 
-<zxing-scanner style="width: 500px;"
-[enable]="scannerEnabled"
-[device]="myDevice"
-(camerasFound)="camerasFoundHandler($event)"
-(scanSuccess)="scanSuccessHandler($event)"
-></zxing-scanner>
-<p *ngFor="let result of results">{{result}}</p>
+    <br>
 
+    <div *ngIf="!sendingData" style="font-size: 60px;margin-top: 10px; color: red;text-align: left;">
+        !APUNTA TU CODIGO QR A LA CAMARA!</div>
+
+    <div *ngIf="sendingData" style="font-size: 40px;margin-top: 10px; color: red;text-align: left;">
+        PUEDES RETIRARLO! <br>
+        <br>
+        ESTAMOS REGISTRANDO TU ASISTENCIA!</div>
+</div>

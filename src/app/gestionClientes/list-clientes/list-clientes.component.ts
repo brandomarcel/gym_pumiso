@@ -9,6 +9,7 @@ import { ServiciosService } from 'app/services/servicios.service';
 export class ListClientesComponent implements OnInit {
 listaClientes:Array<any>=[]
 p: number = 1;
+searchText: string;
   constructor(private servicios:ServiciosService) { }
 
   ngOnInit(): void {

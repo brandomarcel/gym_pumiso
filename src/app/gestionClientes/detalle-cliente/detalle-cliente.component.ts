@@ -1,6 +1,7 @@
 import { ServiciosService } from 'app/services/servicios.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 
 @Component({
@@ -16,16 +17,17 @@ export class DetalleClienteComponent implements OnInit {
   listPesos: any = [];
   dataUri:any=''
   phoneNumber = '+593984086761'; // Número de teléfono de destino
-  message = '¡𝐻𝒪𝐿𝒜 𝐵𝐼𝐸𝒩𝒱𝐸𝒩𝐼𝒟𝒪%0a 𝒜 𝒪𝐿𝐼𝑀𝒫𝒰𝒮 𝒢𝒴𝑀😂:';
+  message = '¡𝐻𝒪𝐿𝒜 𝐵𝐼𝐸𝒩𝒱𝐸𝒩𝐼𝒟𝒪 𝒜 %0a🔱 𝒪𝐿𝐼𝑀𝒫𝒰𝒮 𝒢𝒴𝑀🔱%0a Este es su código QR para el registro de ingreso: ';
   nombnre='adsf'
   imageBase64 = 'http://192.168.100.28:5050/files/foto_paquete%20(3).jpg'; // Base64 de la imagen
 
-  sendImage() {
-    const url = `https://api.whatsapp.com/send?phone=${this.phoneNumber}&text=${this.message}&data=image;base64,${encodeURIComponent(this.imageBase64)}`;
+  sendMessageWasap() {
+    const url = `https://api.whatsapp.com/send?phone=${this.phoneNumber}&text=${this.message}`;
     window.open(url);
   }
 
-  constructor(private servicios: ServiciosService, private activatedRoute: ActivatedRoute) {
+  constructor(private servicios: ServiciosService, private activatedRoute: ActivatedRoute,
+    private clipboard: Clipboard) {
     this.name = this.activatedRoute.snapshot.params['name']
     console.log(this.name)
 
@@ -36,19 +38,23 @@ export class DetalleClienteComponent implements OnInit {
     this.getAlldetalleClientes(this.name)
 
   }
-
+  copyImageToClipboard() {
+    this.clipboard.copy(this.dataUri);
+  }
 
   getAlldetalleClientes(name) {
 
     this.servicios.getAlldetalleClientes(name).subscribe((res: any) => {
       this.detalleCliente = res.message
 
+      
       this.listMembresia = this.detalleCliente.membresia
       this.listPesos = this.detalleCliente.pesos
 
       this.getMembresias()
       console.log(this.detalleCliente)
       this.dataUri = 'data:image/png;base64,' + this.detalleCliente.codigoqr;
+      this.clipboard.copy(this.dataUri);
       console.log(this.listMembresia)
 
     })
@@ -130,6 +136,17 @@ if (res == 'ok') {
   
 }
     
+  }
+
+  generarQR(name){
+    console.log(name)
+    this.servicios.generarQR(name).subscribe(res=>{
+      console.log(res)
+      this.servicios.sweetMensaje('success','QR generado.')
+      this.getAlldetalleClientes(this.name)
+    },error=>{
+      this.servicios.sweetMensaje('error','Error al generar el QR.')
+    })
   }
 
 
