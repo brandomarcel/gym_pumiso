@@ -33,7 +33,7 @@
     "@ng-select/ng-select": "^7.4.0",
     "@zxing/browser": "^0.1.4",
     "@zxing/library": "^0.20.0",
-    "@zxing/ngx-scanner": "^3.9.0",
+    "@zxing/ngx-scanner": "^3.9.1",
     "ajv": "8.11.0",
     "angularx-qrcode": "^14.0.0",
     "arrive": "2.4.1",
